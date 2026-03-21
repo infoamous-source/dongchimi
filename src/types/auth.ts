@@ -27,4 +27,6 @@ export interface RegisterData {
   name: string
   phone?: string
   birthYear?: number
+  orgCode?: string
+  instructorCode?: string
 }

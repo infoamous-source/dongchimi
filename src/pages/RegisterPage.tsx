@@ -12,6 +12,8 @@ export default function RegisterPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [phone, setPhone] = useState('')
+  const [orgCode, setOrgCode] = useState('')
+  const [instructorCode, setInstructorCode] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -20,7 +22,7 @@ export default function RegisterPage() {
     setError('')
     setLoading(true)
     try {
-      await register({ email, password, name, phone: phone || undefined })
+      await register({ email, password, name, phone: phone || undefined, orgCode: orgCode || undefined, instructorCode: instructorCode || undefined })
       navigate('/')
     } catch {
       setError('회원가입 중 문제가 발생했습니다. 다시 시도해주세요.')
@@ -101,6 +103,36 @@ export default function RegisterPage() {
               onChange={(e) => setPhone(e.target.value)}
               placeholder="010-0000-0000"
               autoComplete="tel"
+            />
+          </div>
+
+          <div>
+            <label className="label">
+              기관코드
+              <span className="text-dc-text-muted font-normal ml-2">(선택)</span>
+            </label>
+            <input
+              type="text"
+              className="input-field"
+              value={orgCode}
+              onChange={(e) => setOrgCode(e.target.value.toUpperCase())}
+              placeholder="선생님이 알려준 코드"
+              maxLength={6}
+            />
+          </div>
+
+          <div>
+            <label className="label">
+              강사코드
+              <span className="text-dc-text-muted font-normal ml-2">(선택)</span>
+            </label>
+            <input
+              type="text"
+              className="input-field"
+              value={instructorCode}
+              onChange={(e) => setInstructorCode(e.target.value.toUpperCase())}
+              placeholder="선생님이 알려준 코드"
+              maxLength={8}
             />
           </div>
 

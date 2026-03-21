@@ -84,6 +84,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           name: data.name,
           phone: data.phone,
           birth_year: data.birthYear,
+          org_code: data.orgCode,
+          instructor_code: data.instructorCode,
         },
       },
     })

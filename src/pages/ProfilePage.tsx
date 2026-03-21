@@ -1,6 +1,6 @@
 import { useAuth } from '@/contexts/AuthContext'
 import { Link } from 'react-router-dom'
-import { User, LogOut, Settings, HelpCircle, BookOpen, ChevronRight } from 'lucide-react'
+import { User, LogOut, Settings, HelpCircle, BookOpen, ChevronRight, LayoutDashboard } from 'lucide-react'
 
 export default function ProfilePage() {
   const { user, logout } = useAuth()
@@ -60,6 +60,15 @@ export default function ProfilePage() {
           <span className="text-2xl font-extrabold text-dc-info">0일</span>
         </div>
       </div>
+
+      {/* 강사 대시보드 버튼 */}
+      {user.role === 'instructor' && (
+        <Link to="/admin" className="card flex items-center gap-4 mb-6 hover:shadow-lg transition-shadow bg-dc-green text-white border-0">
+          <LayoutDashboard size={28} />
+          <span className="text-xl font-extrabold flex-1">강사 대시보드</span>
+          <ChevronRight size={24} />
+        </Link>
+      )}
 
       {/* 메뉴 */}
       <div className="flex flex-col gap-3">

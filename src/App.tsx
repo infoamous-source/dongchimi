@@ -29,6 +29,7 @@ const TemplatesPage = lazy(() => import('@/pages/TemplatesPage'))
 const JobBoardPage = lazy(() => import('@/pages/JobBoardPage'))
 
 // 기타
+const AdminPage = lazy(() => import('@/pages/AdminPage'))
 const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
 const LoginPage = lazy(() => import('@/pages/LoginPage'))
 const RegisterPage = lazy(() => import('@/pages/RegisterPage'))
@@ -65,6 +66,7 @@ function App() {
                 <Route path="/work/templates" element={<TemplatesPage />} />
                 <Route path="/work/job-board" element={<JobBoardPage />} />
                 <Route path="/ai" element={<AiBiseoPage />} />
+                <Route path="/admin" element={<AdminPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/courses" element={<Navigate to="/learn" replace />} />
                 <Route path="/career" element={<Navigate to="/work" replace />} />
