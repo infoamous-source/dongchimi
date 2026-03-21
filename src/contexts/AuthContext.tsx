@@ -20,7 +20,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const fetchProfile = useCallback(async (userId: string, email: string): Promise<User | null> => {
     const { data } = await supabase
-      .from('profiles')
+      .from('dc_profiles')
       .select('*')
       .eq('id', userId)
       .single()

@@ -2,7 +2,7 @@ import { supabase } from '@/lib/supabase'
 
 export async function fetchCourseProgress(userId: string, courseId: string) {
   const { data } = await supabase
-    .from('course_progress')
+    .from('dc_course_progress')
     .select('*')
     .eq('user_id', userId)
     .eq('course_id', courseId)
@@ -20,7 +20,7 @@ export async function upsertCourseProgress(
   }
 ) {
   const { data } = await supabase
-    .from('course_progress')
+    .from('dc_course_progress')
     .upsert(
       {
         user_id: userId,
@@ -37,7 +37,7 @@ export async function upsertCourseProgress(
 
 export async function fetchAllCourseProgress(userId: string) {
   const { data } = await supabase
-    .from('course_progress')
+    .from('dc_course_progress')
     .select('*')
     .eq('user_id', userId)
   return data ?? []
@@ -49,7 +49,7 @@ export async function markLessonComplete(
   courseId: string
 ) {
   const { data } = await supabase
-    .from('lesson_progress')
+    .from('dc_lesson_progress')
     .upsert(
       {
         user_id: userId,
@@ -67,7 +67,7 @@ export async function markLessonComplete(
 
 export async function fetchCompletedLessons(userId: string, courseId: string) {
   const { data } = await supabase
-    .from('lesson_progress')
+    .from('dc_lesson_progress')
     .select('lesson_id')
     .eq('user_id', userId)
     .eq('course_id', courseId)
