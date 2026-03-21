@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 기분 선택 — 미리보기</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Apple SD Gothic Neo',sans-serif;background:#fdf8f0;min-height:100vh}
+
+  .phone{width:390px;min-height:800px;background:#fdf8f0;border-radius:40px;border:3px solid #d1d5db;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.15);margin:30px auto;position:relative}
+  .notch{width:150px;height:28px;background:#d1d5db;border-radius:0 0 20px 20px;margin:0 auto}
+  .screen{padding:0;display:flex;flex-direction:column;min-height:740px}
+  .header{background:rgba(255,255,255,0.95);border-bottom:1px solid #e5e7eb;padding:10px 20px;display:flex;align-items:center;gap:8px}
+  .header h2{color:#2d6a4f;font-size:18px;font-weight:800}
+  .content{flex:1;padding:20px 16px;overflow-y:auto}
+
+  .title{text-align:center;font-size:28px;font-weight:800;color:#1a1a2e;margin-bottom:6px;line-height:1.4}
+  .subtitle{text-align:center;font-size:18px;color:#555;margin-bottom:20px}
+
+  .mood-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .mood-card{background:white;border-radius:20px;padding:12px 8px 14px;text-align:center;border:2px solid #e8e8e8;cursor:pointer;transition:all 0.2s}
+  .mood-card:hover{border-color:#2d6a4f;box-shadow:0 4px 16px rgba(45,106,79,0.15);transform:translateY(-2px)}
+  .mood-card .label{font-size:18px;font-weight:800;color:#1a1a2e;margin-top:6px}
+
+  .step-label{text-align:center;font-size:13px;color:#aaa;font-weight:700;letter-spacing:2px;margin-bottom:16px}
+
+  .response .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:18px 24px;background:#2d6a4f;color:white;border:none;border-radius:20px;font-size:22px;font-weight:800;cursor:pointer;margin-top:28px;box-shadow:0 4px 12px rgba(45,106,79,0.25)}
+
+  @keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .float{animation:floatBounce 3s ease-in-out infinite;display:inline-block}
+
+  .pages{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;max-width:900px;margin:0 auto}
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center;font-size:28px;color:#2d6a4f;margin:30px 0 8px">오늘의 기분 선택 — 미리보기</h1>
+<p style="text-align:center;font-size:16px;color:#888;margin-bottom:10px">Step 1: 기분 선택 → Step 2: 응답</p>
+
+<div class="pages">
+
+<!-- ===== Step 1 ===== -->
+<div class="phone">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="header">
+      <svg viewBox="0 0 64 80" width="28" height="35" fill="none"><ellipse cx="32" cy="42" rx="18" ry="24" fill="#fefcfa" stroke="#e8e3db" stroke-width="1.5"/><path d="M32 20 Q32 12 32 8" stroke="#43a047" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M32 12 Q24 6 22 10 Q24 16 32 14" fill="#66bb6a"/><path d="M32 12 Q40 6 42 10 Q40 16 32 14" fill="#4caf50"/><path d="M16 28 Q32 25 48 28 Q49 32 47 34 Q32 31 17 34 Q15 32 16 28 Z" fill="#2d6a4f"/><circle cx="26" cy="40" r="3.5" fill="white"/><circle cx="27" cy="40.5" r="2.2" fill="#3e2723"/><circle cx="38" cy="40" r="3.5" fill="white"/><circle cx="37" cy="40.5" r="2.2" fill="#3e2723"/><ellipse cx="21" cy="46" rx="4" ry="3" fill="#f48fb1" opacity="0.5"/><ellipse cx="43" cy="46" rx="4" ry="3" fill="#f48fb1" opacity="0.5"/><path d="M28 49 Q32 55 36 49" stroke="#8d6e63" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      <h2>동치미학교</h2>
+    </div>
+    <div class="content">
+      <div class="step-label">STEP 1</div>
+      <div class="title">오늘 나의 기분은?</div>
+      <div class="subtitle">동치미로 표현해보세요!</div>
+
+      <div class="mood-grid">
+
+        <!-- 1. 감사해요 (두 손 모으고 꾸벅) -->
+        <div class="mood-card">
+          <svg viewBox="0 0 200 240" width="140" height="168" fill="none">
+            <!-- 몸통 먼저 -->
+            <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+            <path d="M100 78 Q100 58 100 46" stroke="#43a047" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 52 Q84 38 78 44 Q82 56 100 53" fill="#66bb6a"/><path d="M100 52 Q116 38 122 44 Q118 56 100 53" fill="#4caf50"/>
+            <path d="M66 86 Q100 78 134 86 Q136 94 132 98 Q100 90 68 98 Q64 94 66 86 Z" fill="#2d6a4f"/>
+            <!-- ^^ 감은 눈 -->
+            <path d="M82 110 Q88 104 94 110" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M106 110 Q112 104 118 110" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="75" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/><ellipse cx="125" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/>
+            <path d="M90 128 Q100 138 110 128" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- 두 손 모음 (몸통 앞에!) -->
+            <path d="M70 115 Q85 130 100 128" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+            <path d="M130 115 Q115 130 100 128" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+            <circle cx="94" cy="130" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <circle cx="106" cy="130" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <!-- 다리 -->
+            <rect x="84" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="89.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+            <rect x="105" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="110.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+          </svg>
+          <div class="label">감사해요</div>
+        </div>
+
+        <!-- 2. 사랑해요 (하트눈) -->
+        <div class="mood-card">
+          <svg viewBox="0 0 200 240" width="140" height="168" fill="none">
+            <path d="M62 115 Q44 128 48 148" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="48" cy="150" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <path d="M138 115 Q156 128 152 148" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="152" cy="150" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+            <path d="M100 78 Q100 58 100 46" stroke="#43a047" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 52 Q84 38 78 44 Q82 56 100 53" fill="#66bb6a"/><path d="M100 52 Q116 38 122 44 Q118 56 100 53" fill="#4caf50"/>
+            <path d="M66 86 Q100 78 134 86 Q136 94 132 98 Q100 90 68 98 Q64 94 66 86 Z" fill="#2d6a4f"/>
+            <!-- 하트눈 ❤️ (가로 넓게 + 깊은 골) -->
+            <path d="M86 120 L76 111 C72 107 72 100 77 97 C82 94 86 96 86 102 C86 96 90 94 95 97 C100 100 100 107 96 111 Z" fill="#e91e63"/>
+            <path d="M114 120 L104 111 C100 107 100 100 105 97 C110 94 114 96 114 102 C114 96 118 94 123 97 C128 100 128 107 124 111 Z" fill="#e91e63"/>
+            <ellipse cx="75" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/><ellipse cx="125" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/>
+            <path d="M90 128 Q100 138 110 128" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <rect x="84" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="89.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+            <rect x="105" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="110.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+          </svg>
+          <div class="label">사랑해요</div>
+        </div>
+
+        <!-- 3. 궁금해요 (안경+턱괴기) -->
+        <div class="mood-card">
+          <svg viewBox="0 0 200 240" width="140" height="168" fill="none">
+            <path d="M62 118 Q48 132 50 152" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="50" cy="154" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <path d="M138 112 Q148 122 140 136" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="132" cy="138" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+            <path d="M100 78 Q100 58 100 46" stroke="#43a047" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 52 Q84 38 78 44 Q82 56 100 53" fill="#66bb6a"/><path d="M100 52 Q116 38 122 44 Q118 56 100 53" fill="#4caf50"/>
+            <path d="M66 86 Q100 78 134 86 Q136 94 132 98 Q100 90 68 98 Q64 94 66 86 Z" fill="#2d6a4f"/>
+            <circle cx="86" cy="110" r="10" fill="none" stroke="#5d4037" stroke-width="2"/><circle cx="114" cy="110" r="10" fill="none" stroke="#5d4037" stroke-width="2"/><line x1="96" y1="110" x2="104" y2="110" stroke="#5d4037" stroke-width="2"/>
+            <ellipse cx="86" cy="110" rx="6" ry="7" fill="white"/><ellipse cx="87.5" cy="111" rx="4" ry="5" fill="#3e2723"/><circle cx="89" cy="108" r="1.5" fill="white"/>
+            <ellipse cx="114" cy="110" rx="6" ry="7" fill="white"/><ellipse cx="112.5" cy="111" rx="4" ry="5" fill="#3e2723"/><circle cx="111" cy="108" r="1.5" fill="white"/>
+            <ellipse cx="75" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/><ellipse cx="125" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/>
+            <path d="M93 130 Q100 135 107 130" stroke="#8d6e63" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <rect x="84" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="89.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+            <rect x="105" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="110.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+          </svg>
+          <div class="label">궁금해요</div>
+        </div>
+
+        <!-- 4. 심심해요 (뺨 괴고 멍~) -->
+        <div class="mood-card">
+          <svg viewBox="0 0 200 240" width="140" height="168" fill="none">
+            <!-- 왼팔 내림 -->
+            <path d="M62 115 Q48 130 50 150" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="50" cy="152" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <!-- 오른팔 뺨 괴기 -->
+            <path d="M138 108 Q148 118 140 128" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="132" cy="130" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+            <path d="M100 78 Q100 58 100 46" stroke="#43a047" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 52 Q84 38 78 44 Q82 56 100 53" fill="#66bb6a"/><path d="M100 52 Q116 38 122 44 Q118 56 100 53" fill="#4caf50"/>
+            <path d="M66 86 Q100 78 134 86 Q136 94 132 98 Q100 90 68 98 Q64 94 66 86 Z" fill="#2d6a4f"/>
+            <ellipse cx="86" cy="110" rx="6.5" ry="7.5" fill="white"/><ellipse cx="87.5" cy="111" rx="4" ry="5" fill="#3e2723"/><circle cx="89" cy="108" r="1.5" fill="white"/>
+            <ellipse cx="114" cy="110" rx="6.5" ry="7.5" fill="white"/><ellipse cx="112.5" cy="111" rx="4" ry="5" fill="#3e2723"/><circle cx="111" cy="108" r="1.5" fill="white"/>
+            <ellipse cx="75" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/><ellipse cx="125" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/>
+            <!-- 일자 입 (멍~) -->
+            <line x1="92" y1="128" x2="108" y2="128" stroke="#8d6e63" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="84" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="89.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+            <rect x="105" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="110.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+          </svg>
+          <div class="label">심심해요</div>
+        </div>
+
+        <!-- 5. 속상해요 (처진눈+볼잡기+삐죽입) -->
+        <div class="mood-card">
+          <svg viewBox="0 0 200 240" width="140" height="168" fill="none">
+            <path d="M62 110 Q48 120 55 130" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="58" cy="132" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <path d="M138 110 Q152 120 145 130" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="142" cy="132" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+            <!-- 처진 새싹 (잎 크기 유지, 아래로 처짐) -->
+            <path d="M100 78 Q98 62 96 52" stroke="#43a047" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M96 56 Q78 56 72 64 Q80 62 96 58" fill="#66bb6a" stroke="#4caf50" stroke-width="1"/>
+            <path d="M96 56 Q96 68 88 76 Q92 66 96 58" fill="#4caf50" stroke="#388e3c" stroke-width="1"/>
+            <path d="M66 86 Q100 78 134 86 Q136 94 132 98 Q100 90 68 98 Q64 94 66 86 Z" fill="#2d6a4f"/>
+            <!-- 처진 눈썹 -->
+            <line x1="80" y1="102" x2="92" y2="100" stroke="#8d6e63" stroke-width="2" stroke-linecap="round"/>
+            <line x1="120" y1="102" x2="108" y2="100" stroke="#8d6e63" stroke-width="2" stroke-linecap="round"/>
+            <ellipse cx="86" cy="110" rx="6.5" ry="7.5" fill="white"/><ellipse cx="87.5" cy="112" rx="4" ry="5" fill="#3e2723"/><circle cx="89" cy="109" r="1.5" fill="white"/>
+            <ellipse cx="114" cy="110" rx="6.5" ry="7.5" fill="white"/><ellipse cx="112.5" cy="112" rx="4" ry="5" fill="#3e2723"/><circle cx="111" cy="109" r="1.5" fill="white"/>
+            <ellipse cx="75" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/><ellipse cx="125" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/>
+            <!-- 삐죽 입 -->
+            <path d="M92 130 Q100 124 108 130" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <rect x="84" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="89.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+            <rect x="105" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="110.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+          </svg>
+          <div class="label">속상해요</div>
+        </div>
+
+        <!-- 6. 피곤해요 -->
+        <div class="mood-card">
+          <svg viewBox="0 0 200 240" width="140" height="168" fill="none">
+            <path d="M62 118 Q50 138 52 158" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="52" cy="160" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <path d="M138 118 Q150 138 148 158" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="148" cy="160" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+            <path d="M100 78 Q100 58 100 46" stroke="#43a047" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 52 Q84 38 78 44 Q82 56 100 53" fill="#66bb6a"/><path d="M100 52 Q116 38 122 44 Q118 56 100 53" fill="#4caf50"/>
+            <path d="M66 86 Q100 78 134 86 Q136 94 132 98 Q100 90 68 98 Q64 94 66 86 Z" fill="#2d6a4f"/>
+            <path d="M80 112 Q86 108 92 112" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M108 112 Q114 108 120 112" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="75" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/><ellipse cx="125" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/>
+            <path d="M94 128 Q100 124 106 128" stroke="#8d6e63" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="140" y="82" fill="#aaa" font-size="14" font-weight="800">Z</text><text x="150" y="70" fill="#ccc" font-size="10" font-weight="800">z</text>
+            <rect x="84" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="89.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+            <rect x="105" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="110.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+          </svg>
+          <div class="label">피곤해요</div>
+        </div>
+
+        <!-- 7. 화나요 -->
+        <div class="mood-card">
+          <svg viewBox="0 0 200 240" width="140" height="168" fill="none">
+            <path d="M62 118 Q48 130 50 148" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="50" cy="150" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <path d="M138 118 Q152 130 150 148" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="150" cy="150" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+            <path d="M100 78 Q100 58 100 46" stroke="#43a047" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 52 Q84 38 78 44 Q82 56 100 53" fill="#66bb6a"/><path d="M100 52 Q116 38 122 44 Q118 56 100 53" fill="#4caf50"/>
+            <path d="M66 86 Q100 78 134 86 Q136 94 132 98 Q100 90 68 98 Q64 94 66 86 Z" fill="#2d6a4f"/>
+            <line x1="78" y1="100" x2="92" y2="104" stroke="#5d4037" stroke-width="2.5" stroke-linecap="round"/><line x1="122" y1="100" x2="108" y2="104" stroke="#5d4037" stroke-width="2.5" stroke-linecap="round"/>
+            <ellipse cx="86" cy="110" rx="6.5" ry="7.5" fill="white"/><ellipse cx="87.5" cy="111" rx="4" ry="5" fill="#3e2723"/>
+            <ellipse cx="114" cy="110" rx="6.5" ry="7.5" fill="white"/><ellipse cx="112.5" cy="111" rx="4" ry="5" fill="#3e2723"/>
+            <ellipse cx="73" cy="122" rx="10" ry="7" fill="#f48fb1" opacity="0.6"/><ellipse cx="127" cy="122" rx="10" ry="7" fill="#f48fb1" opacity="0.6"/>
+            <path d="M92 130 Q100 124 108 130" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <rect x="84" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="89.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+            <rect x="105" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="110.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+          </svg>
+          <div class="label">화나요</div>
+        </div>
+
+        <!-- 8. 신나요 (왼팔 흔들기 + 오른손 꽃) -->
+        <div class="mood-card">
+          <svg viewBox="0 0 200 240" width="140" height="168" fill="none">
+            <path d="M62 112 Q40 120 38 100" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="38" cy="98" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <!-- 오른손 꽃 들기 -->
+            <path d="M138 108 Q155 88 150 65" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="150" cy="63" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+            <circle cx="150" cy="48" r="4" fill="#ffeb3b"/><circle cx="146" cy="44" r="3.5" fill="#fff176"/><circle cx="154" cy="44" r="3.5" fill="#fff176"/><circle cx="146" cy="52" r="3.5" fill="#fff176"/><circle cx="154" cy="52" r="3.5" fill="#fff176"/>
+            <line x1="150" y1="52" x2="150" y2="61" stroke="#66bb6a" stroke-width="2"/>
+            <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+            <path d="M100 78 Q100 58 100 46" stroke="#43a047" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M100 52 Q84 38 78 44 Q82 56 100 53" fill="#66bb6a"/><path d="M100 52 Q116 38 122 44 Q118 56 100 53" fill="#4caf50"/>
+            <path d="M66 86 Q100 78 134 86 Q136 94 132 98 Q100 90 68 98 Q64 94 66 86 Z" fill="#2d6a4f"/>
+            <ellipse cx="86" cy="110" rx="6.5" ry="7.5" fill="white"/><ellipse cx="87.5" cy="111" rx="4" ry="5" fill="#3e2723"/><circle cx="89" cy="108" r="1.5" fill="white"/>
+            <ellipse cx="114" cy="110" rx="6.5" ry="7.5" fill="white"/><ellipse cx="112.5" cy="111" rx="4" ry="5" fill="#3e2723"/><circle cx="111" cy="108" r="1.5" fill="white"/>
+            <ellipse cx="75" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/><ellipse cx="125" cy="122" rx="8" ry="5" fill="#f48fb1" opacity="0.5"/>
+            <path d="M90 128 Q100 138 110 128" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <rect x="84" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="89.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+            <rect x="105" y="163" width="11" height="18" rx="5.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="110.5" cy="181" rx="9" ry="4.5" fill="#2d6a4f"/>
+          </svg>
+          <div class="label">신나요</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Step 2: 응답 ===== -->
+<div class="phone">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="header">
+      <svg viewBox="0 0 64 80" width="28" height="35" fill="none"><ellipse cx="32" cy="42" rx="18" ry="24" fill="#fefcfa" stroke="#e8e3db" stroke-width="1.5"/><path d="M32 20 Q32 12 32 8" stroke="#43a047" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M32 12 Q24 6 22 10 Q24 16 32 14" fill="#66bb6a"/><path d="M32 12 Q40 6 42 10 Q40 16 32 14" fill="#4caf50"/><path d="M16 28 Q32 25 48 28 Q49 32 47 34 Q32 31 17 34 Q15 32 16 28 Z" fill="#2d6a4f"/><circle cx="26" cy="40" r="3.5" fill="white"/><circle cx="27" cy="40.5" r="2.2" fill="#3e2723"/><circle cx="38" cy="40" r="3.5" fill="white"/><circle cx="37" cy="40.5" r="2.2" fill="#3e2723"/><ellipse cx="21" cy="46" rx="4" ry="3" fill="#f48fb1" opacity="0.5"/><ellipse cx="43" cy="46" rx="4" ry="3" fill="#f48fb1" opacity="0.5"/><path d="M28 49 Q32 55 36 49" stroke="#8d6e63" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+      <h2>동치미학교</h2>
+    </div>
+    <div class="content response" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+      <div class="step-label">STEP 2</div>
+
+      <div class="float" style="margin-bottom:8px;">
+        <svg viewBox="0 0 200 240" width="200" height="240" fill="none">
+          <path d="M62 115 Q44 128 48 148" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="48" cy="150" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+          <path d="M138 108 Q155 88 150 65" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/><circle cx="150" cy="63" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+          <circle cx="150" cy="46" r="5" fill="#ffeb3b"/><circle cx="145" cy="41" r="4" fill="#fff176"/><circle cx="155" cy="41" r="4" fill="#fff176"/><circle cx="145" cy="51" r="4" fill="#fff176"/><circle cx="155" cy="51" r="4" fill="#fff176"/>
+          <line x1="150" y1="51" x2="150" y2="62" stroke="#66bb6a" stroke-width="2"/>
+          <ellipse cx="100" cy="120" rx="40" ry="50" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+          <ellipse cx="100" cy="120" rx="36" ry="46" fill="#fefefe"/>
+          <path d="M100 74 Q100 54 100 42" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M100 48 Q82 32 76 40 Q80 54 100 50" fill="#66bb6a" stroke="#4caf50" stroke-width="1"/>
+          <path d="M100 48 Q118 32 124 40 Q120 54 100 50" fill="#4caf50" stroke="#388e3c" stroke-width="1"/>
+          <path d="M62 82 Q100 74 138 82 Q140 92 136 96 Q100 88 64 96 Q60 92 62 82 Z" fill="#2d6a4f"/>
+          <ellipse cx="86" cy="110" rx="7.5" ry="8.5" fill="white"/><ellipse cx="88" cy="111" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="90" cy="108" r="2" fill="white"/>
+          <ellipse cx="114" cy="110" rx="7.5" ry="8.5" fill="white"/><ellipse cx="112" cy="111" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="110" cy="108" r="2" fill="white"/>
+          <ellipse cx="73" cy="124" rx="10" ry="6" fill="#f48fb1" opacity="0.5"/><ellipse cx="127" cy="124" rx="10" ry="6" fill="#f48fb1" opacity="0.5"/>
+          <path d="M90 130 Q100 142 110 130" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <rect x="82" y="167" width="13" height="22" rx="6.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88.5" cy="189" rx="10" ry="5" fill="#2d6a4f"/>
+          <rect x="105" y="167" width="13" height="22" rx="6.5" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="111.5" cy="189" rx="10" ry="5" fill="#2d6a4f"/>
+        </svg>
+      </div>
+
+      <h2 style="font-size:26px;font-weight:800;color:#1a1a2e;line-height:1.4;">순자님,<br>오늘 심심하시군요!</h2>
+      <p style="margin-top:16px;font-size:20px;color:#3a3a4a;line-height:1.7;max-width:300px;">
+        심심할 땐 배움이 최고예요!<br>수업 듣고 신나게 놀러가요~
+      </p>
+
+      <p style="margin-top:24px;font-size:20px;color:#2d6a4f;font-weight:700;">
+        오늘의 동치미가 수업을 안내할게요!
+      </p>
+
+      <button class="btn" style="max-width:340px;">
+        교실 입장
+      </button>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

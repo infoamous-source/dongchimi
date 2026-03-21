@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+/* ===== 동치미 디자인 시스템 - 시니어 특화 ===== */
+
+@theme {
+  /* 브랜드 컬러 */
+  --color-dc-green: #2d6a4f;
+  --color-dc-green-light: #40916c;
+  --color-dc-green-pale: #b7e4c7;
+  --color-dc-green-bg: #f0faf4;
+
+  --color-dc-warm: #f5e6d3;
+  --color-dc-warm-dark: #d4a574;
+  --color-dc-cream: #fdf8f0;
+  --color-dc-orange: #e76f51;
+  --color-dc-orange-light: #f4a261;
+  --color-dc-brown: #6b4423;
+
+  /* 기능 컬러 */
+  --color-dc-success: #2d6a4f;
+  --color-dc-warning: #e9c46a;
+  --color-dc-error: #dc2626;
+  --color-dc-info: #457b9d;
+
+  /* 텍스트 - 고대비 강화 */
+  --color-dc-text: #1a1a2e;
+  --color-dc-text-secondary: #3a3a4a;
+  --color-dc-text-muted: #555566;
+
+  /* 애니메이션 */
+  --animate-fade-in: fadeIn 0.3s ease-out;
+  --animate-slide-up: slideUp 0.3s ease-out;
+}
+
+/* ===== 기본 스타일 ===== */
+
+html {
+  font-size: 20px;
+}
+
+body {
+  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
+  color: var(--color-dc-text);
+  background-color: var(--color-dc-cream);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== 시니어 친화 컴포넌트 ===== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4rem;
+  padding: 1.1rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+  background-color: var(--color-dc-green);
+  border-radius: 1.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  gap: 0.5rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-dc-green-light);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4rem;
+  padding: 1.1rem 2rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-dc-green);
+  background-color: white;
+  border-radius: 1.25rem;
+  border: 2px solid var(--color-dc-green);
+  cursor: pointer;
+  transition: background-color 0.2s;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-dc-green-bg);
+}
+
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e8e8e8;
+}
+
+.card-highlight {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(45, 106, 79, 0.12);
+  border: 2px solid var(--color-dc-green-pale);
+}
+
+.input-field {
+  width: 100%;
+  min-height: 4rem;
+  padding: 1rem 1.25rem;
+  font-size: 1.1rem;
+  border: 2px solid #d1d5db;
+  border-radius: 1.125rem;
+  background: white;
+  color: var(--color-dc-text);
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-dc-green);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+.input-field::placeholder {
+  color: #888;
+  font-size: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dc-text);
+  margin-bottom: 0.5rem;
+}
+
+/* 하단 네비게이션 - 시니어 특화 */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.625rem 0.5rem;
+  padding-bottom: max(0.625rem, env(safe-area-inset-bottom));
+  z-index: 50;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  min-width: 4.5rem;
+  color: var(--color-dc-text-muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 1rem;
+  transition: all 0.2s;
+}
+
+.bottom-nav-item.active {
+  color: white;
+  background-color: var(--color-dc-green);
+}
+
+.bottom-nav-item svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* ===== 키프레임 ===== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 동치미 캐릭터 애니메이션 */
+@keyframes floatBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes waveLeft {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(10deg); }
+}
+
+@keyframes waveRight {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(15deg); }
+  70% { transform: rotate(-8deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+@keyframes cheekGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes stepLeft {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-7deg); }
+}
+
+@keyframes stepRight {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(7deg); }
+}
+
+/* ===== 접근성 ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-dc-green);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 5px;
+}
+
+.has-bottom-nav {
+  padding-bottom: 6rem;
+}

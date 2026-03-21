@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>동치미 캐릭터 10종 — 항아리 없는 버전</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Apple SD Gothic Neo',sans-serif;background:#f5f5f5;padding:40px 16px}
+  h1{text-align:center;font-size:32px;color:#2d6a4f;margin-bottom:8px}
+  .sub{text-align:center;font-size:17px;color:#666;margin-bottom:40px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+  .item{background:white;border-radius:24px;padding:24px 16px 20px;box-shadow:0 4px 20px rgba(0,0,0,0.06);text-align:center;transition:transform 0.2s}
+  .item:hover{transform:translateY(-4px)}
+  .item h3{font-size:16px;color:#2d6a4f;margin-top:12px;font-weight:800}
+  .item p{font-size:13px;color:#888;margin-top:4px;line-height:1.5}
+  .num{display:inline-block;background:#2d6a4f;color:white;width:28px;height:28px;border-radius:50%;font-size:14px;font-weight:800;line-height:28px;margin-bottom:8px}
+
+  @keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  @keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}75%{transform:rotate(5deg)}}
+  @keyframes cheekPulse{0%,100%{opacity:0.5}50%{opacity:0.9}}
+  @keyframes waveL{0%,100%{transform:rotate(0)}25%{transform:rotate(-20deg)}75%{transform:rotate(10deg)}}
+  @keyframes waveR{0%,100%{transform:rotate(0)}30%{transform:rotate(20deg)}70%{transform:rotate(-10deg)}}
+  @keyframes stepL{0%,100%{transform:rotate(0)}50%{transform:rotate(-8deg)}}
+  @keyframes stepR{0%,100%{transform:rotate(0)}50%{transform:rotate(8deg)}}
+
+  .float{animation:floatBounce 3s ease-in-out infinite}
+  .wiggle{animation:wiggle 2.5s ease-in-out infinite}
+  .cheek{animation:cheekPulse 2s ease-in-out infinite}
+  .wave-l{animation:waveL 2s ease-in-out infinite}
+  .wave-r{animation:waveR 2.5s ease-in-out infinite}
+  .step-l{animation:stepL 1.5s ease-in-out infinite}
+  .step-r{animation:stepR 1.5s ease-in-out infinite}
+</style>
+</head>
+<body>
+
+<h1>🫙 동치미 캐릭터 10종 — 항아리 없는 버전</h1>
+<p class="sub">자유로운 팔 + 다리 + 표정별 포즈</p>
+
+<div class="grid">
+
+<!-- ===== 1. 기본형 — 양팔 흔들기 ===== -->
+<div class="item">
+  <span class="num">1</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n1"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 왼팔 흔들기 -->
+    <g class="wave-l" style="transform-origin:62px 130px">
+      <path d="M62 125 Q42 138 46 158" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="46" cy="160" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    </g>
+    <!-- 오른팔 흔들기 -->
+    <g class="wave-r" style="transform-origin:138px 130px">
+      <path d="M138 125 Q158 138 154 158" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="154" cy="160" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    </g>
+    <!-- 몸통 -->
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <path d="M76 98 Q73 125 76 175 Q78 182 84 186 Q80 180 78 175 Q74 125 78 100 Z" fill="white" opacity="0.5"/>
+    <!-- 새싹 -->
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a" stroke="#4caf50" stroke-width="1"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50" stroke="#388e3c" stroke-width="1"/></g>
+    <!-- 머리띠 -->
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <!-- 눈 -->
+    <ellipse cx="86" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="88" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="90" cy="130" r="2" fill="white"/>
+    <ellipse cx="114" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="112" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="110" cy="130" r="2" fill="white"/>
+    <!-- 볼 -->
+    <ellipse cx="73" cy="146" rx="9" ry="6" fill="url(#n1)" class="cheek"/><ellipse cx="127" cy="146" rx="9" ry="6" fill="url(#n1)" class="cheek"/>
+    <!-- 입 -->
+    <path d="M91 152 Q100 163 109 152" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- 다리 -->
+    <g class="step-l" style="transform-origin:88px 190px"><rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+    <g class="step-r" style="transform-origin:112px 190px"><rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+  </svg>
+  </div>
+  <h3>기본형</h3>
+  <p>양팔 흔들며 인사</p>
+</div>
+
+<!-- ===== 2. 윙크 — 한손 브이 ===== -->
+<div class="item">
+  <span class="num">2</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n2"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 왼팔 허리 -->
+    <path d="M62 135 Q50 145 52 160" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="52" cy="162" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <!-- 오른팔 브이! -->
+    <g class="wave-r" style="transform-origin:138px 115px">
+      <path d="M138 120 Q155 105 152 85" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="152" cy="83" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+      <!-- 브이 손가락 -->
+      <line x1="148" y1="78" x2="144" y2="65" stroke="#e0dbd3" stroke-width="3" stroke-linecap="round"/>
+      <line x1="156" y1="78" x2="160" y2="65" stroke="#e0dbd3" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <path d="M80 133 Q86 128 92 133" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="114" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="112" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="110" cy="130" r="2" fill="white"/>
+    <ellipse cx="73" cy="146" rx="9" ry="6" fill="url(#n2)" class="cheek"/><ellipse cx="127" cy="146" rx="9" ry="6" fill="url(#n2)" class="cheek"/>
+    <path d="M91 152 Q100 163 109 152" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <g class="step-l" style="transform-origin:88px 190px"><rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+    <g class="step-r" style="transform-origin:112px 190px"><rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+  </svg>
+  </div>
+  <h3>윙크 + 브이</h3>
+  <p>한손 브이! 팁/힌트</p>
+</div>
+
+<!-- ===== 3. 하트눈 — 양손 하트 ===== -->
+<div class="item">
+  <span class="num">3</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n3"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 양팔 흔들기 -->
+    <g class="wave-l" style="transform-origin:62px 130px">
+      <path d="M62 125 Q42 138 46 158" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="46" cy="160" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    </g>
+    <g class="wave-r" style="transform-origin:138px 130px">
+      <path d="M138 125 Q158 138 154 158" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="154" cy="160" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    </g>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <path d="M82 130 Q82 126 86 126 Q90 126 90 130 Q90 134 86 138 Q82 134 82 130 Z" fill="#e91e63"/>
+    <path d="M110 130 Q110 126 114 126 Q118 126 118 130 Q118 134 114 138 Q110 134 110 130 Z" fill="#e91e63"/>
+    <ellipse cx="73" cy="146" rx="9" ry="6" fill="url(#n3)" class="cheek"/><ellipse cx="127" cy="146" rx="9" ry="6" fill="url(#n3)" class="cheek"/>
+    <path d="M91 152 Q100 163 109 152" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+    <rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+  </svg>
+  </div>
+  <h3>하트눈</h3>
+  <p>사랑해요~ 좋아요 반응</p>
+</div>
+
+<!-- ===== 4. 놀란 — 양손 볼 잡기 ===== -->
+<div class="item">
+  <span class="num">4</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n4"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 양손 볼에 갖다댐 -->
+    <path d="M62 125 Q48 135 55 145" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="58" cy="146" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <path d="M138 125 Q152 135 145 145" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="142" cy="146" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <ellipse cx="86" cy="130" rx="9" ry="10" fill="white"/><ellipse cx="87" cy="131" rx="5" ry="6" fill="#3e2723"/><circle cx="89" cy="128" r="2.5" fill="white"/>
+    <ellipse cx="114" cy="130" rx="9" ry="10" fill="white"/><ellipse cx="113" cy="131" rx="5" ry="6" fill="#3e2723"/><circle cx="111" cy="128" r="2.5" fill="white"/>
+    <ellipse cx="73" cy="146" rx="9" ry="6" fill="url(#n4)" class="cheek"/><ellipse cx="127" cy="146" rx="9" ry="6" fill="url(#n4)" class="cheek"/>
+    <ellipse cx="100" cy="156" rx="6" ry="7" fill="#c7897a" stroke="#8d6e63" stroke-width="1.5"/>
+    <rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+    <rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+  </svg>
+  </div>
+  <h3>오~!</h3>
+  <p>양손 볼 잡고 놀란 표정</p>
+</div>
+
+<!-- ===== 5. 눈웃음 — 양팔 만세 ===== -->
+<div class="item">
+  <span class="num">5</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n5"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 양팔 만세! -->
+    <g class="wave-l" style="transform-origin:62px 120px">
+      <path d="M62 120 Q45 95 50 72" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="50" cy="70" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    </g>
+    <g class="wave-r" style="transform-origin:138px 120px">
+      <path d="M138 120 Q155 95 150 72" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="150" cy="70" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    </g>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <path d="M80 132 Q86 126 92 132" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M108 132 Q114 126 120 132" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="73" cy="144" rx="10" ry="7" fill="url(#n5)" class="cheek"/><ellipse cx="127" cy="144" rx="10" ry="7" fill="url(#n5)" class="cheek"/>
+    <path d="M91 150 Q100 161 109 150" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <g class="step-l" style="transform-origin:88px 190px"><rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+    <g class="step-r" style="transform-origin:112px 190px"><rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+  </svg>
+  </div>
+  <h3>만세 ^^</h3>
+  <p>양팔 만세! 환영/축하</p>
+</div>
+
+<!-- ===== 6. 안경 — 턱 괴기 ===== -->
+<div class="item">
+  <span class="num">6</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n6"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 왼팔 내림 -->
+    <path d="M62 135 Q48 150 50 168" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="50" cy="170" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <!-- 오른팔 턱 괴기 -->
+    <path d="M138 130 Q148 140 142 155" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="132" cy="158" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <circle cx="86" cy="132" r="11" fill="none" stroke="#5d4037" stroke-width="2.5"/><circle cx="114" cy="132" r="11" fill="none" stroke="#5d4037" stroke-width="2.5"/><line x1="97" y1="132" x2="103" y2="132" stroke="#5d4037" stroke-width="2.5"/>
+    <ellipse cx="86" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="88" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="90" cy="130" r="2" fill="white"/>
+    <ellipse cx="114" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="112" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="110" cy="130" r="2" fill="white"/>
+    <ellipse cx="73" cy="146" rx="9" ry="6" fill="url(#n6)" class="cheek"/><ellipse cx="127" cy="146" rx="9" ry="6" fill="url(#n6)" class="cheek"/>
+    <path d="M93 153 Q100 158 107 153" stroke="#8d6e63" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+    <rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+  </svg>
+  </div>
+  <h3>공부 모드</h3>
+  <p>안경 + 턱 괴기, 생각 중</p>
+</div>
+
+<!-- ===== 7. 꽃 — 꽃 들기 ===== -->
+<div class="item">
+  <span class="num">7</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n7"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 왼팔 흔들기 -->
+    <g class="wave-l" style="transform-origin:62px 130px">
+      <path d="M62 125 Q42 138 46 158" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="46" cy="160" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    </g>
+    <!-- 오른팔 꽃 들기 -->
+    <path d="M138 120 Q155 100 150 80" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="150" cy="78" r="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <!-- 꽃 -->
+    <circle cx="150" cy="62" r="4" fill="#ffeb3b"/><circle cx="145" cy="58" r="4" fill="#fff176"/><circle cx="155" cy="58" r="4" fill="#fff176"/><circle cx="145" cy="66" r="4" fill="#fff176"/><circle cx="155" cy="66" r="4" fill="#fff176"/>
+    <line x1="150" y1="66" x2="150" y2="76" stroke="#66bb6a" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <ellipse cx="86" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="88" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="90" cy="130" r="2" fill="white"/>
+    <ellipse cx="114" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="112" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="110" cy="130" r="2" fill="white"/>
+    <ellipse cx="73" cy="146" rx="9" ry="6" fill="url(#n7)" class="cheek"/><ellipse cx="127" cy="146" rx="9" ry="6" fill="url(#n7)" class="cheek"/>
+    <path d="M91 152 Q100 163 109 152" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <g class="step-l" style="transform-origin:88px 190px"><rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+    <g class="step-r" style="transform-origin:112px 190px"><rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+  </svg>
+  </div>
+  <h3>꽃 선물</h3>
+  <p>한손에 꽃 들고 환영</p>
+</div>
+
+<!-- ===== 8. 졸린 — 팔 늘어뜨림 ===== -->
+<div class="item">
+  <span class="num">8</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n8"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 양팔 축 늘어뜨림 -->
+    <path d="M62 130 Q50 150 52 175" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="52" cy="177" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <path d="M138 130 Q150 150 148 175" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="148" cy="177" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <path d="M80 134 Q86 130 92 134" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M108 134 Q114 130 120 134" stroke="#3e2723" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="73" cy="144" rx="9" ry="6" fill="url(#n8)" class="cheek"/><ellipse cx="127" cy="144" rx="9" ry="6" fill="url(#n8)" class="cheek"/>
+    <path d="M94 152 Q100 148 106 152" stroke="#8d6e63" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="140" y="100" fill="#aaa" font-size="16" font-weight="800">Z</text>
+    <text x="150" y="88" fill="#ccc" font-size="11" font-weight="800">z</text>
+    <rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+    <rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+  </svg>
+  </div>
+  <h3>꾸벅꾸벅</h3>
+  <p>팔 축 늘어뜨린 졸린 모드</p>
+</div>
+
+<!-- ===== 9. 엄지척 — 한손 엄지 ===== -->
+<div class="item">
+  <span class="num">9</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n9"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 왼팔 허리 -->
+    <path d="M62 135 Q50 148 52 165" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="52" cy="167" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <!-- 오른팔 엄지척 -->
+    <g class="wave-r" style="transform-origin:138px 110px">
+      <path d="M138 118 Q152 102 148 85" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+      <circle cx="148" cy="83" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+      <ellipse cx="152" cy="72" rx="4" ry="7" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    </g>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#2d6a4f"/>
+    <ellipse cx="86" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="88" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="90" cy="130" r="2" fill="white"/>
+    <ellipse cx="114" cy="132" rx="7" ry="8" fill="white"/><ellipse cx="112" cy="133" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="110" cy="130" r="2" fill="white"/>
+    <ellipse cx="73" cy="146" rx="9" ry="6" fill="url(#n9)" class="cheek"/><ellipse cx="127" cy="146" rx="9" ry="6" fill="url(#n9)" class="cheek"/>
+    <path d="M91 152 Q100 163 109 152" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <g class="step-l" style="transform-origin:88px 190px"><rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+    <g class="step-r" style="transform-origin:112px 190px"><rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/></g>
+  </svg>
+  </div>
+  <h3>엄지척!</h3>
+  <p>잘했어요~ 완료 축하</p>
+</div>
+
+<!-- ===== 10. 겨울 — 양팔 모아 떨기 ===== -->
+<div class="item">
+  <span class="num">10</span>
+  <div class="float">
+  <svg viewBox="0 0 200 260" width="160" height="208" fill="none">
+    <defs><radialGradient id="n10"><stop offset="0%" stop-color="#f48fb1" stop-opacity="0.9"/><stop offset="100%" stop-color="#f48fb1" stop-opacity="0"/></radialGradient></defs>
+    <ellipse cx="100" cy="252" rx="40" ry="6" fill="#00000010"/>
+    <!-- 양팔 모아서 (추워서) -->
+    <path d="M65 130 Q72 145 80 155" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="82" cy="157" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <path d="M135 130 Q128 145 120 155" stroke="#e0dbd3" stroke-width="1.5" fill="#faf8f5"/>
+    <circle cx="118" cy="157" r="8" fill="#fefcfa" stroke="#e0dbd3" stroke-width="1.5"/>
+    <ellipse cx="100" cy="140" rx="40" ry="52" fill="#fefcfa" stroke="#e8e3db" stroke-width="2"/>
+    <ellipse cx="100" cy="140" rx="36" ry="48" fill="#fefefe"/>
+    <g class="wiggle" style="transform-origin:100px 92px"><path d="M100 92 Q100 72 100 60" stroke="#43a047" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M100 66 Q82 50 76 58 Q80 72 100 68" fill="#66bb6a"/><path d="M100 66 Q118 50 124 58 Q120 72 100 68" fill="#4caf50"/></g>
+    <!-- 빨간 머리띠 -->
+    <path d="M62 102 Q100 94 138 102 Q140 112 136 116 Q100 108 64 116 Q60 112 62 102 Z" fill="#e53935"/>
+    <path d="M70 104 Q100 99 130 104 Q100 101 70 106 Z" fill="#ef5350" opacity="0.4"/>
+    <ellipse cx="86" cy="130" rx="7" ry="8" fill="white"/><ellipse cx="88" cy="131" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="90" cy="128" r="2" fill="white"/>
+    <ellipse cx="114" cy="130" rx="7" ry="8" fill="white"/><ellipse cx="112" cy="131" rx="4.5" ry="5.5" fill="#3e2723"/><circle cx="110" cy="128" r="2" fill="white"/>
+    <ellipse cx="73" cy="144" rx="9" ry="6" fill="url(#n10)" class="cheek"/><ellipse cx="127" cy="144" rx="9" ry="6" fill="url(#n10)" class="cheek"/>
+    <path d="M91 150 Q100 161 109 150" stroke="#8d6e63" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="82" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="88" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+    <rect x="106" y="188" width="12" height="22" rx="6" fill="#faf8f5" stroke="#e0dbd3" stroke-width="1.5"/><ellipse cx="112" cy="210" rx="10" ry="5" fill="#2d6a4f"/>
+  </svg>
+  </div>
+  <h3>빨간 머리띠</h3>
+  <p>특별한 날! 빨간 포인트</p>
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:40px;font-size:16px;color:#888;line-height:1.7;">
+  항아리 없는 전신 버전 · 표정별 자유로운 팔 포즈<br>
+  1.기본 2.브이 3.하트눈 4.놀람 5.만세 6.턱괴기 7.꽃 8.졸림 9.엄지 10.빨간머리띠
+</p>
+
+</body>
+</html>
