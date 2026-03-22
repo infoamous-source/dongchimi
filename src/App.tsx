@@ -23,6 +23,10 @@ const CareerHubPage = lazy(() => import('@/pages/CareerHubPage'))
 
 // 중장년층 프로그램
 const CareerProgramPage = lazy(() => import('@/pages/CareerProgramPage'))
+const CareerDigitalPage = lazy(() => import('@/pages/CareerDigitalPage'))
+const CareerWorkPage = lazy(() => import('@/pages/CareerWorkPage'))
+const CareerReviewsPage = lazy(() => import('@/pages/CareerReviewsPage'))
+const CareerAiPage = lazy(() => import('@/pages/CareerAiPage'))
 const AiResumePage = lazy(() => import('@/pages/AiResumePage'))
 const AiCoverLetterPage = lazy(() => import('@/pages/AiCoverLetterPage'))
 const TemplatesPage = lazy(() => import('@/pages/TemplatesPage'))
@@ -70,10 +74,15 @@ function App() {
 
                 {/* ===== 2. 중장년층 프로그램 ===== */}
                 <Route path="/career" element={<CareerProgramPage />} />
+                <Route path="/career/digital" element={<CareerDigitalPage />} />
+                <Route path="/career/digital/kiosk" element={<KioskPracticePage />} />
+                <Route path="/career/work" element={<CareerWorkPage />} />
                 <Route path="/career/ai-resume" element={<AiResumePage />} />
                 <Route path="/career/ai-cover-letter" element={<AiCoverLetterPage />} />
                 <Route path="/career/templates" element={<TemplatesPage />} />
                 <Route path="/career/job-board" element={<JobBoardPage />} />
+                <Route path="/career/reviews" element={<CareerReviewsPage />} />
+                <Route path="/career/ai" element={<CareerAiPage />} />
 
                 {/* 공통 */}
                 <Route path="/admin" element={<AdminPage />} />
