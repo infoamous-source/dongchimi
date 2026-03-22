@@ -164,7 +164,7 @@ export default function AboutPage() {
           <div className="text-4xl">💼</div>
           <div className="flex-1">
             <h3 className="text-xl font-extrabold text-dc-text">일터</h3>
-            <p className="text-lg text-dc-text-secondary">이력서, 자기소개서, 채용정보</p>
+            <p className="text-lg text-dc-text-secondary">시니어 일자리 정보</p>
           </div>
           <ArrowRight size={28} className="text-emerald-500" />
         </Link>

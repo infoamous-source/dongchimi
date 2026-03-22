@@ -6,10 +6,10 @@ import DongchimiMood from '@/components/brand/DongchimiVariants'
 import DongchimiCharacter from '@/components/brand/DongchimiCharacter'
 
 const sections = [
-  { to: '/about', emoji: '🏫', title: '동치미학교란?', description: '동치미학교를 소개합니다', border: 'border-amber-200' },
-  { to: '/learn', emoji: '📚', title: '배움터', description: '스마트폰, 인터넷, AI 등\n디지털 기초를 배워요', border: 'border-blue-200' },
-  { to: '/work', emoji: '💼', title: '일터', description: '시니어 일자리 정보를\n확인해보세요', border: 'border-emerald-200' },
-  { to: '/ai', emoji: '🤖', title: 'AI비서', description: '무엇이든 물어보세요!\n쉽고 친절하게 알려드려요', border: 'border-purple-200' },
+  { to: '/senior/about', emoji: '🏫', title: '동치미학교란?', description: '동치미학교를 소개합니다', border: 'border-amber-200' },
+  { to: '/senior/learn', emoji: '📚', title: '배움터', description: '스마트폰, 인터넷, AI 등\n디지털 기초를 배워요', border: 'border-blue-200' },
+  { to: '/senior/work', emoji: '💼', title: '일터', description: '시니어 일자리 정보를\n확인해보세요', border: 'border-emerald-200' },
+  { to: '/senior/ai', emoji: '🤖', title: 'AI비서', description: '무엇이든 물어보세요!\n쉽고 친절하게 알려드려요', border: 'border-purple-200' },
 ]
 
 export default function HomePage() {

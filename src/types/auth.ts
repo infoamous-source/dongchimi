@@ -7,6 +7,7 @@ export interface User {
   birthYear?: number
   profileImageUrl?: string
   geminiApiKey?: string
+  orgCode?: string
   createdAt: string
 }
 
@@ -28,5 +29,4 @@ export interface RegisterData {
   phone?: string
   birthYear?: number
   orgCode?: string
-  instructorCode?: string
 }

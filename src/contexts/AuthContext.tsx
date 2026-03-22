@@ -42,6 +42,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       birthYear: data.birth_year,
       profileImageUrl: data.profile_image_url,
       geminiApiKey: data.gemini_api_key,
+      orgCode: data.org_code,
       createdAt: data.created_at,
     }
   }, [])
@@ -91,7 +92,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           phone: data.phone,
           birth_year: data.birthYear,
           org_code: data.orgCode,
-          instructor_code: data.instructorCode,
         },
       },
     })
