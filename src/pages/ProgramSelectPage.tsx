@@ -52,11 +52,11 @@ export default function ProgramSelectPage() {
           className="card hover:shadow-lg transition-shadow border-2 border-dc-green-pale text-left"
         >
           <div className="flex items-center gap-5">
-            <div className="w-20 h-20 rounded-3xl bg-dc-green-bg flex items-center justify-center text-4xl shrink-0">🫙</div>
+            <div className="w-24 h-24 rounded-3xl bg-dc-green-bg flex items-center justify-center text-5xl shrink-0">🫙</div>
             <div>
-              <div className="text-sm font-bold text-dc-green bg-dc-green-bg px-3 py-1 rounded-full inline-block mb-2">1</div>
-              <h2 className="text-2xl font-extrabold text-dc-text">초시니어 프로그램</h2>
+              <h2 className="text-2xl font-extrabold text-dc-text">큰동치미</h2>
               <p className="text-lg text-dc-text-secondary mt-1">스마트폰, 키오스크, AI 등<br />디지털 기초 교육</p>
+              <p className="text-base text-dc-green font-bold mt-2">양로원 · 복지관 · 시니어센터</p>
             </div>
           </div>
         </button>
@@ -66,11 +66,11 @@ export default function ProgramSelectPage() {
           className="card hover:shadow-lg transition-shadow border-2 border-blue-200 text-left"
         >
           <div className="flex items-center gap-5">
-            <div className="w-20 h-20 rounded-3xl bg-blue-50 flex items-center justify-center text-4xl shrink-0">💼</div>
+            <div className="w-20 h-20 rounded-3xl bg-blue-50 flex items-center justify-center text-4xl shrink-0">🫙</div>
             <div>
-              <div className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full inline-block mb-2">2</div>
-              <h2 className="text-2xl font-extrabold text-dc-text">중장년층 프로그램</h2>
+              <h2 className="text-2xl font-extrabold text-dc-text">작은동치미</h2>
               <p className="text-lg text-dc-text-secondary mt-1">이력서, 자기소개서 작성<br />취업 정보, AI 활용</p>
+              <p className="text-base text-blue-600 font-bold mt-2">재취업센터 · 평생학습원</p>
             </div>
           </div>
         </button>
