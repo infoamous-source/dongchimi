@@ -1,31 +1,80 @@
 import { useState, type FormEvent } from 'react'
-import { useAuth } from '@/contexts/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import { supabase } from '@/lib/supabase'
 import { DongchimiIcon } from '@/components/brand/DongchimiCharacter'
 
-export default function RegisterPage() {
-  const { register } = useAuth()
+export default function RegisterInstructorPage() {
   const navigate = useNavigate()
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [phone, setPhone] = useState('')
-  const [orgCode, setOrgCode] = useState('')
-  const [instructorCode, setInstructorCode] = useState('')
+  const [code, setCode] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     setError('')
+
+    if (!code.trim()) {
+      setError('강사 인증코드를 입력해주세요')
+      return
+    }
+
     setLoading(true)
     try {
-      await register({ email, password, name, phone: phone || undefined, orgCode: orgCode || undefined, instructorCode: instructorCode || undefined })
+      // 1. 인증코드 확인
+      const { data: codeData } = await supabase
+        .from('dc_instructor_codes')
+        .select('*')
+        .eq('code', code.trim())
+        .eq('used', false)
+        .single()
+
+      if (!codeData) {
+        setError('인증코드가 올바르지 않거나 이미 사용된 코드예요')
+        setLoading(false)
+        return
+      }
+
+      // 2. 회원가입 (instructor role)
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            name,
+            phone: phone || undefined,
+            role: 'instructor',
+          },
+        },
+      })
+
+      if (authError) {
+        setError('회원가입 중 문제가 발생했어요. 다시 시도해주세요.')
+        setLoading(false)
+        return
+      }
+
+      // 3. 프로필 role 업데이트 + 인증코드 사용 처리
+      if (authData.user) {
+        await supabase
+          .from('dc_profiles')
+          .update({ role: 'instructor' })
+          .eq('id', authData.user.id)
+
+        await supabase
+          .from('dc_instructor_codes')
+          .update({ used: true, used_by: authData.user.id })
+          .eq('id', codeData.id)
+      }
+
       navigate('/')
     } catch {
-      setError('회원가입 중 문제가 발생했습니다. 다시 시도해주세요.')
+      setError('회원가입 중 문제가 발생했어요. 다시 시도해주세요.')
     } finally {
       setLoading(false)
     }
@@ -34,7 +83,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-dc-cream flex flex-col">
       <div className="px-4 py-4">
-        <Link to="/" className="inline-flex items-center gap-2 text-dc-text-secondary text-lg font-bold">
+        <Link to="/register" className="inline-flex items-center gap-2 text-dc-text-secondary text-lg font-bold">
           <ArrowLeft size={24} />
           <span>뒤로가기</span>
         </Link>
@@ -45,13 +94,26 @@ export default function RegisterPage() {
           <DongchimiIcon size={56} />
         </div>
         <h1 className="text-3xl font-extrabold text-dc-text mb-3">
-          동치미에 오신 걸 환영합니다
+          강사 회원가입
         </h1>
         <p className="text-xl text-dc-text-secondary mb-10">
-          간단한 정보만 입력하면 바로 시작할 수 있어요
+          발급받은 인증코드를 입력해주세요
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <div>
+            <label className="label">강사 인증코드</label>
+            <input
+              type="text"
+              className="input-field border-dc-green border-2 bg-dc-green-bg"
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              placeholder="발급받은 코드 입력"
+              required
+            />
+            <p className="text-lg text-dc-text-muted mt-2">관리자에게 받은 코드를 입력하세요</p>
+          </div>
+
           <div>
             <label className="label">이름</label>
             <input
@@ -106,55 +168,14 @@ export default function RegisterPage() {
             />
           </div>
 
-          <div>
-            <label className="label">
-              기관코드
-              <span className="text-dc-text-muted font-normal ml-2">(선택)</span>
-            </label>
-            <input
-              type="text"
-              className="input-field"
-              value={orgCode}
-              onChange={(e) => setOrgCode(e.target.value.toUpperCase())}
-              placeholder="선생님이 알려준 코드"
-              maxLength={6}
-            />
-          </div>
-
-          <div>
-            <label className="label">
-              강사코드
-              <span className="text-dc-text-muted font-normal ml-2">(선택)</span>
-            </label>
-            <input
-              type="text"
-              className="input-field"
-              value={instructorCode}
-              onChange={(e) => setInstructorCode(e.target.value.toUpperCase())}
-              placeholder="선생님이 알려준 코드"
-              maxLength={8}
-            />
-          </div>
-
           {error && (
             <p className="text-dc-error text-lg font-bold">{error}</p>
           )}
 
           <button type="submit" className="btn-primary w-full mt-2" disabled={loading}>
-            {loading ? '잠시만 기다려주세요...' : '회원가입'}
+            {loading ? '잠시만 기다려주세요...' : '강사 가입하기'}
           </button>
         </form>
-
-        <p className="text-center mt-8 text-xl text-dc-text-secondary">
-          이미 회원이신가요?{' '}
-          <Link to="/login" className="text-dc-green font-extrabold">
-            로그인
-          </Link>
-        </p>
-
-        <Link to="/register/instructor" className="block text-center mt-4 text-xl text-dc-info font-extrabold">
-          강사이신가요? 강사 가입하기
-        </Link>
       </div>
     </div>
   )

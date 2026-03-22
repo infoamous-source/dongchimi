@@ -33,6 +33,7 @@ const AdminPage = lazy(() => import('@/pages/AdminPage'))
 const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
 const LoginPage = lazy(() => import('@/pages/LoginPage'))
 const RegisterPage = lazy(() => import('@/pages/RegisterPage'))
+const RegisterInstructorPage = lazy(() => import('@/pages/RegisterInstructorPage'))
 
 // 홈 진입 시 기분 체크
 function HomeOrMood() {
@@ -75,6 +76,7 @@ function App() {
 
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+            <Route path="/register/instructor" element={<RegisterInstructorPage />} />
             </Routes>
           </Suspense>
         </MoodProvider>
