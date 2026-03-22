@@ -12,7 +12,7 @@ export default function CourseDetailPage() {
     return (
       <div className="max-w-2xl mx-auto px-4 py-12 text-center">
         <p className="text-xl text-dc-text-secondary">강좌를 찾을 수 없어요</p>
-        <Link to="/learn" className="btn-primary mt-6 inline-flex">뒤로가기</Link>
+        <Link to="/senior/learn" className="btn-primary mt-6 inline-flex">뒤로가기</Link>
       </div>
     )
   }
@@ -24,7 +24,7 @@ export default function CourseDetailPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6 animate-fade-in">
-      <Link to="/learn" className="inline-flex items-center gap-2 text-dc-text-secondary mb-6 text-lg font-bold">
+      <Link to="/senior/learn" className="inline-flex items-center gap-2 text-dc-text-secondary mb-6 text-lg font-bold">
         <ArrowLeft size={24} />
         <span>뒤로가기</span>
       </Link>

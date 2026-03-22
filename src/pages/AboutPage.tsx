@@ -152,7 +152,7 @@ export default function AboutPage() {
         지금 바로 시작해보세요
       </h2>
       <div className="flex flex-col gap-4">
-        <Link to="/learn" className="card flex items-center gap-5 hover:shadow-lg transition-shadow border-2 border-blue-100">
+        <Link to="/senior/learn" className="card flex items-center gap-5 hover:shadow-lg transition-shadow border-2 border-blue-100">
           <div className="text-4xl">📚</div>
           <div className="flex-1">
             <h3 className="text-xl font-extrabold text-dc-text">배움터</h3>
@@ -160,7 +160,7 @@ export default function AboutPage() {
           </div>
           <ArrowRight size={28} className="text-blue-500" />
         </Link>
-        <Link to="/work" className="card flex items-center gap-5 hover:shadow-lg transition-shadow border-2 border-emerald-100">
+        <Link to="/senior/work" className="card flex items-center gap-5 hover:shadow-lg transition-shadow border-2 border-emerald-100">
           <div className="text-4xl">💼</div>
           <div className="flex-1">
             <h3 className="text-xl font-extrabold text-dc-text">일터</h3>
@@ -168,7 +168,7 @@ export default function AboutPage() {
           </div>
           <ArrowRight size={28} className="text-emerald-500" />
         </Link>
-        <Link to="/ai" className="card flex items-center gap-5 hover:shadow-lg transition-shadow border-2 border-purple-100">
+        <Link to="/senior/ai" className="card flex items-center gap-5 hover:shadow-lg transition-shadow border-2 border-purple-100">
           <div className="text-4xl">🤖</div>
           <div className="flex-1">
             <h3 className="text-xl font-extrabold text-dc-text">AI비서</h3>
@@ -184,7 +184,7 @@ export default function AboutPage() {
           늦지 않았어요.<br />
           지금 시작하면 됩니다.
         </p>
-        <Link to="/learn" className="btn-primary w-full text-xl py-5">
+        <Link to="/senior/learn" className="btn-primary w-full text-xl py-5">
           배움터에서 시작하기
         </Link>
       </div>

@@ -28,7 +28,7 @@ export default function LearnHubPage() {
       </p>
 
       {/* 키오스크 연습 */}
-      <Link to="/learn/kiosk" className="card-highlight flex items-center gap-5 mb-4 hover:shadow-lg transition-shadow border-2 border-amber-200">
+      <Link to="/senior/learn/kiosk" className="card-highlight flex items-center gap-5 mb-4 hover:shadow-lg transition-shadow border-2 border-amber-200">
         <div className="text-4xl">📱</div>
         <div className="flex-1">
           <h2 className="text-xl font-extrabold text-amber-800">키오스크 연습</h2>
@@ -38,7 +38,7 @@ export default function LearnHubPage() {
       </Link>
 
       {/* 실전 연습 */}
-      <Link to="/learn/practice" className="card-highlight flex items-center gap-5 mb-8 hover:shadow-lg transition-shadow">
+      <Link to="/senior/learn/practice" className="card-highlight flex items-center gap-5 mb-8 hover:shadow-lg transition-shadow">
         <div className="text-4xl">🎯</div>
         <div className="flex-1">
           <h2 className="text-xl font-extrabold text-dc-green">실전 연습하기</h2>

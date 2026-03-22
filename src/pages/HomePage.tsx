@@ -35,7 +35,7 @@ export default function HomePage() {
           <div className="card-highlight">
             <h3 className="text-xl font-extrabold text-dc-green mb-3">오늘의 학습</h3>
             <p className="text-lg text-dc-text-secondary mb-5">스마트폰 기초 &gt; 카카오톡 보내기</p>
-            <Link to="/learn/smartphone" className="btn-primary w-full text-xl py-5">
+            <Link to="/senior/learn/smartphone" className="btn-primary w-full text-xl py-5">
               이어서 배우기 <ArrowRight size={24} />
             </Link>
           </div>

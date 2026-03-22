@@ -19,7 +19,7 @@ export default function MoodSelectPage() {
   const handleConfirm = () => {
     if (!selected) return
     setMood(selected)
-    navigate('/')
+    navigate('/senior')
   }
 
   // Step 2: 응답 화면

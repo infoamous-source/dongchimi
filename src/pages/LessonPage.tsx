@@ -16,7 +16,7 @@ export default function LessonPage() {
     return (
       <div className="max-w-2xl mx-auto px-4 py-12 text-center">
         <p className="text-xl text-dc-text-secondary">수업을 찾을 수 없어요</p>
-        <Link to="/learn" className="btn-primary mt-6 inline-flex">뒤로가기</Link>
+        <Link to="/senior/learn" className="btn-primary mt-6 inline-flex">뒤로가기</Link>
       </div>
     )
   }
@@ -74,7 +74,7 @@ export default function LessonPage() {
       )}
 
       <Link
-        to={`/ai?lesson=${lesson.id}&course=${course.id}`}
+        to={`/senior/ai?lesson=${lesson.id}&course=${course.id}`}
         className="card flex items-center gap-5 mb-6 hover:shadow-lg transition-shadow border-2 border-blue-200 bg-blue-50"
       >
         <div className="w-16 h-16 rounded-full bg-dc-info/20 flex items-center justify-center shrink-0">

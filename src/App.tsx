@@ -5,36 +5,40 @@ import { MoodProvider, useMood } from '@/contexts/MoodContext'
 import MainLayout from '@/components/common/MainLayout'
 import LoadingSkeleton from '@/components/common/LoadingSkeleton'
 
-// 기분 선택
-const MoodSelectPage = lazy(() => import('@/pages/MoodSelectPage'))
+// 프로그램 선택
+const ProgramSelectPage = lazy(() => import('@/pages/ProgramSelectPage'))
 
-// 메인 섹션
+// 초시니어 프로그램
+const MoodSelectPage = lazy(() => import('@/pages/MoodSelectPage'))
 const HomePage = lazy(() => import('@/pages/HomePage'))
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
 const AiBiseoPage = lazy(() => import('@/pages/AiBiseoPage'))
-
-// 배움터
 const LearnHubPage = lazy(() => import('@/pages/LearnHubPage'))
 const CourseDetailPage = lazy(() => import('@/pages/CourseDetailPage'))
 const LessonPage = lazy(() => import('@/pages/LessonPage'))
 const PracticePage = lazy(() => import('@/pages/PracticePage'))
 const PracticeDetailPage = lazy(() => import('@/pages/PracticeDetailPage'))
 const KioskPracticePage = lazy(() => import('@/pages/KioskPracticePage'))
-
-// 일터 (시니어 일자리 정보)
 const CareerHubPage = lazy(() => import('@/pages/CareerHubPage'))
 
-// 기타
+// 중장년층 프로그램
+const CareerProgramPage = lazy(() => import('@/pages/CareerProgramPage'))
+const AiResumePage = lazy(() => import('@/pages/AiResumePage'))
+const AiCoverLetterPage = lazy(() => import('@/pages/AiCoverLetterPage'))
+const TemplatesPage = lazy(() => import('@/pages/TemplatesPage'))
+const JobBoardPage = lazy(() => import('@/pages/JobBoardPage'))
+
+// 공통
 const AdminPage = lazy(() => import('@/pages/AdminPage'))
 const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
 const LoginPage = lazy(() => import('@/pages/LoginPage'))
 const RegisterPage = lazy(() => import('@/pages/RegisterPage'))
 const RegisterInstructorPage = lazy(() => import('@/pages/RegisterInstructorPage'))
 
-// 홈 진입 시 기분 체크
-function HomeOrMood() {
+// 초시니어 홈 진입 시 기분 체크
+function SeniorHomeOrMood() {
   const { hasMoodToday } = useMood()
-  if (!hasMoodToday) return <Navigate to="/mood" replace />
+  if (!hasMoodToday) return <Navigate to="/senior/mood" replace />
   return <HomePage />
 }
 
@@ -45,30 +49,47 @@ function App() {
         <MoodProvider>
           <Suspense fallback={<LoadingSkeleton />}>
             <Routes>
-              {/* 기분 선택 (독립 페이지, 네비 없음) */}
-              <Route path="/mood" element={<MoodSelectPage />} />
+              {/* 프로그램 선택 (첫 화면) */}
+              <Route path="/" element={<ProgramSelectPage />} />
+
+              {/* ===== 1. 초시니어 프로그램 ===== */}
+              <Route path="/senior/mood" element={<MoodSelectPage />} />
 
               <Route element={<MainLayout />}>
-                <Route path="/" element={<HomeOrMood />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/learn" element={<LearnHubPage />} />
-                <Route path="/learn/practice" element={<PracticePage />} />
-                <Route path="/learn/practice/:practiceId" element={<PracticeDetailPage />} />
-                <Route path="/learn/kiosk" element={<KioskPracticePage />} />
-              <Route path="/learn/:courseId" element={<CourseDetailPage />} />
-                <Route path="/learn/:courseId/lessons/:lessonId" element={<LessonPage />} />
-                <Route path="/work" element={<CareerHubPage />} />
-                <Route path="/ai" element={<AiBiseoPage />} />
+                <Route path="/senior" element={<SeniorHomeOrMood />} />
+                <Route path="/senior/about" element={<AboutPage />} />
+                <Route path="/senior/learn" element={<LearnHubPage />} />
+                <Route path="/senior/learn/practice" element={<PracticePage />} />
+                <Route path="/senior/learn/practice/:practiceId" element={<PracticeDetailPage />} />
+                <Route path="/senior/learn/kiosk" element={<KioskPracticePage />} />
+                <Route path="/senior/learn/:courseId" element={<CourseDetailPage />} />
+                <Route path="/senior/learn/:courseId/lessons/:lessonId" element={<LessonPage />} />
+                <Route path="/senior/work" element={<CareerHubPage />} />
+                <Route path="/senior/ai" element={<AiBiseoPage />} />
+                <Route path="/senior/profile" element={<ProfilePage />} />
+
+                {/* ===== 2. 중장년층 프로그램 ===== */}
+                <Route path="/career" element={<CareerProgramPage />} />
+                <Route path="/career/ai-resume" element={<AiResumePage />} />
+                <Route path="/career/ai-cover-letter" element={<AiCoverLetterPage />} />
+                <Route path="/career/templates" element={<TemplatesPage />} />
+                <Route path="/career/job-board" element={<JobBoardPage />} />
+
+                {/* 공통 */}
                 <Route path="/admin" element={<AdminPage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-                <Route path="/courses" element={<Navigate to="/learn" replace />} />
-                <Route path="/career" element={<Navigate to="/work" replace />} />
-                <Route path="/tutor" element={<Navigate to="/ai" replace />} />
               </Route>
 
+              {/* 인증 */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
-            <Route path="/register/instructor" element={<RegisterInstructorPage />} />
+              <Route path="/register/instructor" element={<RegisterInstructorPage />} />
+
+              {/* 이전 라우트 호환 */}
+              <Route path="/mood" element={<Navigate to="/senior/mood" replace />} />
+              <Route path="/learn/*" element={<Navigate to="/senior/learn" replace />} />
+              <Route path="/work" element={<Navigate to="/senior/work" replace />} />
+              <Route path="/ai" element={<Navigate to="/senior/ai" replace />} />
+              <Route path="/about" element={<Navigate to="/senior/about" replace />} />
             </Routes>
           </Suspense>
         </MoodProvider>

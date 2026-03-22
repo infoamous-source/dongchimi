@@ -41,7 +41,7 @@ export default function KioskPracticePage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8 animate-fade-in">
-      <Link to="/learn" className="inline-flex items-center gap-2 text-dc-text-secondary mb-6 text-lg font-bold">
+      <Link to="/senior/learn" className="inline-flex items-center gap-2 text-dc-text-secondary mb-6 text-lg font-bold">
         <ArrowLeft size={24} />
         <span>배움터</span>
       </Link>

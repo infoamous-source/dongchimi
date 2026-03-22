@@ -72,7 +72,7 @@ export default function ProfilePage() {
 
       {/* 메뉴 */}
       <div className="flex flex-col gap-3">
-        <Link to="/learn" className="card flex items-center gap-4 hover:shadow-lg transition-shadow">
+        <Link to="/senior/learn" className="card flex items-center gap-4 hover:shadow-lg transition-shadow">
           <BookOpen size={28} className="text-dc-green" />
           <span className="text-xl font-bold flex-1">내 학습 내역</span>
           <ChevronRight size={24} className="text-dc-text-muted" />

@@ -17,7 +17,7 @@ export default function PracticeDetailPage() {
     return (
       <div className="max-w-2xl mx-auto px-4 py-12 text-center">
         <p className="text-xl text-dc-text-secondary">연습을 찾을 수 없어요</p>
-        <Link to="/learn/practice" className="btn-primary mt-6 inline-flex">뒤로가기</Link>
+        <Link to="/senior/learn/practice" className="btn-primary mt-6 inline-flex">뒤로가기</Link>
       </div>
     )
   }
@@ -61,7 +61,7 @@ export default function PracticeDetailPage() {
             <RotateCcw size={24} />
             다시 해보기
           </button>
-          <Link to="/learn/practice" className="btn-primary w-full text-xl">
+          <Link to="/senior/learn/practice" className="btn-primary w-full text-xl">
             다른 연습 해보기
           </Link>
         </div>
@@ -71,7 +71,7 @@ export default function PracticeDetailPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6 animate-fade-in">
-      <Link to="/learn/practice" className="inline-flex items-center gap-2 text-dc-text-secondary mb-5 text-lg font-bold">
+      <Link to="/senior/learn/practice" className="inline-flex items-center gap-2 text-dc-text-secondary mb-5 text-lg font-bold">
         <ArrowLeft size={24} />
         <span>뒤로가기</span>
       </Link>
