@@ -9,6 +9,7 @@ import GovernmentKiosk from '@/components/kiosk/GovernmentKiosk'
 import CinemaKiosk from '@/components/kiosk/CinemaKiosk'
 import ConvenienceKiosk from '@/components/kiosk/ConvenienceKiosk'
 import AirportKiosk from '@/components/kiosk/AirportKiosk'
+import RestaurantKiosk from '@/components/kiosk/RestaurantKiosk'
 
 const kioskTypes = [
   { id: 'cafe', icon: '☕', title: '카페 키오스크', description: '커피, 음료, 디저트 주문 연습' },
@@ -19,6 +20,7 @@ const kioskTypes = [
   { id: 'cinema', icon: '🎬', title: '영화관 키오스크', description: '영화 예매, 좌석 선택 연습' },
   { id: 'convenience', icon: '🏪', title: '편의점 셀프계산', description: '셀프 계산대 사용 연습' },
   { id: 'airport', icon: '✈️', title: '공항 셀프체크인', description: '항공편 체크인, 좌석 선택' },
+  { id: 'restaurant', icon: '🍚', title: '식당 태블릿 주문', description: '한식당 태블릿 주문, 더치페이' },
 ]
 
 const kioskMap: Record<string, React.FC<{ onClose: () => void }>> = {
@@ -30,6 +32,7 @@ const kioskMap: Record<string, React.FC<{ onClose: () => void }>> = {
   cinema: CinemaKiosk,
   convenience: ConvenienceKiosk,
   airport: AirportKiosk,
+  restaurant: RestaurantKiosk,
 }
 
 export default function KioskPracticePage() {
