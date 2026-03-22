@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ChevronRight } from 'lucide-react'
+import { ArrowLeft, ExternalLink } from 'lucide-react'
 
-const workItems = [
-  { id: 'resume-write', title: '이력서 쓰는 법', description: '기본 이력서 작성 방법을 배워요', icon: '📝', path: '/ai?topic=resume' },
-  { id: 'cover-letter', title: '자기소개서 쓰는 법', description: '나를 잘 표현하는 방법을 배워요', icon: '✍️', path: '/ai?topic=cover-letter' },
-  { id: 'ai-resume', title: 'AI로 이력서 쓰기', description: 'AI가 이력서 작성을 도와드려요', icon: '🤖', path: '/work/ai-resume' },
-  { id: 'ai-cover-letter', title: 'AI로 자기소개서 쓰기', description: 'AI가 자기소개서 작성을 도와드려요', icon: '🤖', path: '/work/ai-cover-letter' },
-  { id: 'templates', title: '양식 다운로드', description: '이력서, 자기소개서 양식 받기', icon: '📄', path: '/work/templates' },
-  { id: 'job-board', title: '채용공고 정보', description: '시니어 채용 사이트와 공고 확인', icon: '🔍', path: '/work/job-board' },
+const seniorJobSites = [
+  { name: '노인일자리여기', url: 'https://www.seniorro.or.kr', description: '한국노인인력개발원 운영, 시니어 일자리 검색' },
+  { name: '워크넷 시니어', url: 'https://www.work.go.kr', description: '고용노동부 공식 취업 사이트' },
+  { name: '대한노인회', url: 'https://www.koreapeople.co.kr', description: '시니어 복지·일자리 정보' },
+  { name: '시니어클럽', url: 'https://www.silverclub.or.kr', description: '지역 시니어클럽 일자리 연결' },
+  { name: '노인맞춤돌봄서비스', url: 'https://www.129.go.kr', description: '보건복지 상담센터 (129)' },
 ]
 
 export default function CareerHubPage() {
@@ -18,32 +17,38 @@ export default function CareerHubPage() {
         <span>홈으로</span>
       </Link>
 
-      <div className="mb-8">
-        <h1 className="text-3xl font-extrabold text-dc-text mb-3">
-          💼 일터
-        </h1>
-        <p className="text-xl text-dc-text-secondary">
-          이력서, 자기소개서 작성과 취업 정보를 알아봐요
-        </p>
-      </div>
+      <h1 className="text-3xl font-extrabold text-dc-text mb-3">💼 시니어 일자리 정보</h1>
+      <p className="text-xl text-dc-text-secondary mb-8">
+        정부에서 운영하는 시니어 일자리<br />사이트를 확인해보세요
+      </p>
 
       <div className="flex flex-col gap-4">
-        {workItems.map((item) => (
-          <Link
-            key={item.id}
-            to={item.path}
+        {seniorJobSites.map(site => (
+          <a
+            key={site.name}
+            href={site.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="card flex items-center gap-5 hover:shadow-lg transition-shadow"
           >
-            <div className="w-16 h-16 rounded-3xl bg-emerald-50 flex items-center justify-center text-3xl shrink-0">
-              {item.icon}
+            <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-2xl shrink-0">
+              🌐
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-extrabold text-dc-text">{item.title}</h3>
-              <p className="text-lg text-dc-text-secondary mt-1">{item.description}</p>
+              <h3 className="text-xl font-extrabold text-dc-text">{site.name}</h3>
+              <p className="text-lg text-dc-text-secondary mt-1">{site.description}</p>
             </div>
-            <ChevronRight size={28} className="text-dc-text-muted shrink-0" />
-          </Link>
+            <ExternalLink size={24} className="text-dc-info shrink-0" />
+          </a>
         ))}
+      </div>
+
+      <div className="mt-8 card bg-dc-green-bg border-2 border-dc-green-pale">
+        <h3 className="text-xl font-extrabold text-dc-green mb-2">도움이 필요하시면</h3>
+        <p className="text-lg text-dc-text-secondary">
+          가까운 주민센터나 복지관에 방문하시거나<br />
+          <strong>전화 129</strong>로 연락하시면 안내받으실 수 있어요.
+        </p>
       </div>
     </div>
   )

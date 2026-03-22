@@ -21,12 +21,8 @@ const PracticePage = lazy(() => import('@/pages/PracticePage'))
 const PracticeDetailPage = lazy(() => import('@/pages/PracticeDetailPage'))
 const KioskPracticePage = lazy(() => import('@/pages/KioskPracticePage'))
 
-// 일터
+// 일터 (시니어 일자리 정보)
 const CareerHubPage = lazy(() => import('@/pages/CareerHubPage'))
-const AiResumePage = lazy(() => import('@/pages/AiResumePage'))
-const AiCoverLetterPage = lazy(() => import('@/pages/AiCoverLetterPage'))
-const TemplatesPage = lazy(() => import('@/pages/TemplatesPage'))
-const JobBoardPage = lazy(() => import('@/pages/JobBoardPage'))
 
 // 기타
 const AdminPage = lazy(() => import('@/pages/AdminPage'))
@@ -62,10 +58,6 @@ function App() {
               <Route path="/learn/:courseId" element={<CourseDetailPage />} />
                 <Route path="/learn/:courseId/lessons/:lessonId" element={<LessonPage />} />
                 <Route path="/work" element={<CareerHubPage />} />
-                <Route path="/work/ai-resume" element={<AiResumePage />} />
-                <Route path="/work/ai-cover-letter" element={<AiCoverLetterPage />} />
-                <Route path="/work/templates" element={<TemplatesPage />} />
-                <Route path="/work/job-board" element={<JobBoardPage />} />
                 <Route path="/ai" element={<AiBiseoPage />} />
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/profile" element={<ProfilePage />} />

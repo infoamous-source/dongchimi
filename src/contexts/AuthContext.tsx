@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react'
 import { supabase } from '@/lib/supabase'
+import { setStoredApiKey, clearStoredApiKey } from '@/services/gemini/geminiClient'
 import type { User, AuthState, LoginCredentials, RegisterData } from '@/types/auth'
 
 interface AuthContextType extends AuthState {
@@ -26,6 +27,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       .single()
 
     if (!data) return null
+
+    // Gemini API 키가 있으면 localStorage에 동기화
+    if (data.gemini_api_key) {
+      setStoredApiKey(data.gemini_api_key)
+    }
 
     return {
       id: userId,
@@ -96,6 +102,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const logout = useCallback(async () => {
+    clearStoredApiKey()
     await supabase.auth.signOut()
     setState({ user: null, loading: false, error: null })
   }, [])
