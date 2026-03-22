@@ -69,7 +69,8 @@ export default function CareerAiPage() {
           <Key size={48} className="mx-auto text-dc-green mb-4" />
           <h2 className="text-2xl font-extrabold text-dc-text mb-6">API 등록</h2>
           <div className="max-w-sm mx-auto">
-            <input type="text" className="input-field mb-4" value={apiKey} onChange={e => setApiKey(e.target.value)} placeholder="API 키를 입력해주세요" onKeyDown={e => e.key === 'Enter' && handleRegisterKey()} />
+            <input type="text" className="input-field mb-3" value={apiKey} onChange={e => setApiKey(e.target.value)} placeholder="API 키를 입력해주세요" onKeyDown={e => e.key === 'Enter' && handleRegisterKey()} />
+            <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer" className="block text-lg text-dc-info font-bold mb-4 underline">Google API 키 발급받기 →</a>
             <button onClick={handleRegisterKey} disabled={!apiKey.trim()} className="btn-primary w-full text-xl disabled:opacity-40">등록</button>
           </div>
         </div>

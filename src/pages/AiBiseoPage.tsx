@@ -87,12 +87,20 @@ export default function AiBiseoPage() {
           <div className="max-w-sm mx-auto">
             <input
               type="text"
-              className="input-field mb-4"
+              className="input-field mb-3"
               value={apiKey}
               onChange={e => setApiKey(e.target.value)}
               placeholder="API 키를 입력해주세요"
               onKeyDown={e => e.key === 'Enter' && handleRegisterKey()}
             />
+            <a
+              href="https://aistudio.google.com/apikey"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-lg text-dc-info font-bold mb-4 underline"
+            >
+              Google API 키 발급받기 →
+            </a>
             <button
               onClick={handleRegisterKey}
               disabled={!apiKey.trim()}
