@@ -2,16 +2,39 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ChevronRight } from 'lucide-react'
 import CafeKiosk from '@/components/kiosk/CafeKiosk'
+import FastfoodKiosk from '@/components/kiosk/FastfoodKiosk'
+import BankKiosk from '@/components/kiosk/BankKiosk'
+import HospitalKiosk from '@/components/kiosk/HospitalKiosk'
+import GovernmentKiosk from '@/components/kiosk/GovernmentKiosk'
+import CinemaKiosk from '@/components/kiosk/CinemaKiosk'
+import ConvenienceKiosk from '@/components/kiosk/ConvenienceKiosk'
+import AirportKiosk from '@/components/kiosk/AirportKiosk'
 
 const kioskTypes = [
-  { id: 'cafe', icon: '☕', title: '카페 키오스크', description: '커피, 음료, 디저트 주문 연습', available: true },
-  { id: 'fastfood', icon: '🍔', title: '패스트푸드 키오스크', description: '햄버거, 세트메뉴 주문 연습', available: false },
-  { id: 'cinema', icon: '🎬', title: '영화관 키오스크', description: '영화 예매, 좌석 선택 연습', available: false },
-  { id: 'hospital', icon: '🏥', title: '병원 접수 키오스크', description: '진료 접수, 수납 연습', available: false },
+  { id: 'cafe', icon: '☕', title: '카페 키오스크', description: '커피, 음료, 디저트 주문 연습' },
+  { id: 'fastfood', icon: '🍔', title: '패스트푸드 키오스크', description: '햄버거, 세트메뉴 주문 연습' },
+  { id: 'bank', icon: '🏦', title: '은행 ATM', description: '출금, 입금, 이체 연습' },
+  { id: 'hospital', icon: '🏥', title: '병원 접수 키오스크', description: '진료 접수, 수납 연습' },
+  { id: 'government', icon: '🏛️', title: '관공서 무인발급기', description: '주민등록등본 등 서류 발급' },
+  { id: 'cinema', icon: '🎬', title: '영화관 키오스크', description: '영화 예매, 좌석 선택 연습' },
+  { id: 'convenience', icon: '🏪', title: '편의점 셀프계산', description: '셀프 계산대 사용 연습' },
+  { id: 'airport', icon: '✈️', title: '공항 셀프체크인', description: '항공편 체크인, 좌석 선택' },
 ]
+
+const kioskMap: Record<string, React.FC<{ onClose: () => void }>> = {
+  cafe: CafeKiosk,
+  fastfood: FastfoodKiosk,
+  bank: BankKiosk,
+  hospital: HospitalKiosk,
+  government: GovernmentKiosk,
+  cinema: CinemaKiosk,
+  convenience: ConvenienceKiosk,
+  airport: AirportKiosk,
+}
 
 export default function KioskPracticePage() {
   const [activeKiosk, setActiveKiosk] = useState<string | null>(null)
+  const ActiveComponent = activeKiosk ? kioskMap[activeKiosk] : null
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8 animate-fade-in">
@@ -29,11 +52,8 @@ export default function KioskPracticePage() {
         {kioskTypes.map(k => (
           <button
             key={k.id}
-            onClick={() => k.available && setActiveKiosk(k.id)}
-            disabled={!k.available}
-            className={`card flex items-center gap-5 text-left transition-shadow ${
-              k.available ? 'hover:shadow-lg' : 'opacity-50'
-            }`}
+            onClick={() => setActiveKiosk(k.id)}
+            className="card flex items-center gap-5 text-left hover:shadow-lg transition-shadow"
           >
             <div className="w-16 h-16 rounded-3xl bg-amber-50 flex items-center justify-center text-3xl shrink-0">
               {k.icon}
@@ -41,16 +61,13 @@ export default function KioskPracticePage() {
             <div className="flex-1">
               <h3 className="text-xl font-extrabold text-dc-text">{k.title}</h3>
               <p className="text-lg text-dc-text-secondary mt-1">{k.description}</p>
-              {!k.available && <p className="text-lg text-dc-text-muted mt-1 font-bold">준비 중</p>}
             </div>
-            {k.available && <ChevronRight size={28} className="text-dc-text-muted shrink-0" />}
+            <ChevronRight size={28} className="text-dc-text-muted shrink-0" />
           </button>
         ))}
       </div>
 
-      {activeKiosk === 'cafe' && (
-        <CafeKiosk onClose={() => setActiveKiosk(null)} />
-      )}
+      {ActiveComponent && <ActiveComponent onClose={() => setActiveKiosk(null)} />}
     </div>
   )
 }
