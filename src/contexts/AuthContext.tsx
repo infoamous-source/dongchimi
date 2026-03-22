@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react'
 import { supabase } from '@/lib/supabase'
 import { setStoredApiKey, clearStoredApiKey } from '@/services/gemini/geminiClient'
+import { logLoginIfNeeded } from '@/services/activityService'
 import type { User, AuthState, LoginCredentials, RegisterData } from '@/types/auth'
 
 interface AuthContextType extends AuthState {
@@ -32,6 +33,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (data.gemini_api_key) {
       setStoredApiKey(data.gemini_api_key)
     }
+
+    // 출석 기록
+    logLoginIfNeeded(userId).catch(() => {})
 
     return {
       id: userId,

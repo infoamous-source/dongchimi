@@ -38,6 +38,7 @@ const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
 const LoginPage = lazy(() => import('@/pages/LoginPage'))
 const RegisterPage = lazy(() => import('@/pages/RegisterPage'))
 const RegisterInstructorPage = lazy(() => import('@/pages/RegisterInstructorPage'))
+const CeoDashboardPage = lazy(() => import('@/pages/CeoDashboardPage'))
 
 // 초시니어 홈 진입 시 기분 체크
 function SeniorHomeOrMood() {
@@ -86,6 +87,7 @@ function App() {
 
                 {/* 공통 */}
                 <Route path="/admin" element={<AdminPage />} />
+                <Route path="/ceo" element={<CeoDashboardPage />} />
               </Route>
 
               {/* 인증 */}
