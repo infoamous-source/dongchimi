@@ -42,7 +42,7 @@ export default function CareerAiPage() {
     setInput('')
     setLoading(true)
     try {
-      const response = await askTutor(text.trim(), undefined, [...messages, userMsg])
+      const response = await askTutor(text.trim(), undefined, [...messages, userMsg], 'career')
       setMessages(prev => [...prev, { role: 'tutor', content: response, timestamp: Date.now() }])
     } catch {
       setMessages(prev => [...prev, { role: 'tutor', content: '잠시 문제가 생겼어요. 다시 물어봐 주세요!', timestamp: Date.now() }])
