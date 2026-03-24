@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
 import { useMood } from '@/contexts/MoodContext'
 import { supabase } from '@/lib/supabase'
+import DongchimiMood from '@/components/brand/DongchimiVariants'
 import { DongchimiIcon } from '@/components/brand/DongchimiCharacter'
 
 export default function ProgramSelectPage() {
@@ -42,37 +43,27 @@ export default function ProgramSelectPage() {
   // 로그인 안 했거나 orgCode 없는 경우: 선택 화면
   return (
     <div className="min-h-screen bg-dc-cream flex flex-col items-center justify-center px-4 py-8 animate-fade-in">
-      <DongchimiIcon size={56} />
-      <h1 className="text-3xl font-extrabold text-dc-text mt-4 mb-2">동치미학교</h1>
-      <p className="text-xl text-dc-text-secondary mb-10">프로그램을 선택해주세요</p>
+      <h1 className="text-3xl font-extrabold text-dc-text mb-10">동치미학교</h1>
 
-      <div className="flex flex-col gap-5 w-full max-w-md">
+      <div className="flex flex-col gap-5 w-full max-w-sm">
+        {/* 큰동치미 */}
         <button
           onClick={() => navigate('/senior')}
-          className="card hover:shadow-lg transition-shadow border-2 border-dc-green-pale text-left"
+          className="bg-dc-green-bg hover:bg-[#e0f2e8] rounded-3xl py-8 px-6 text-center transition-colors shadow-sm"
         >
-          <div className="flex items-center gap-5">
-            <div className="w-24 h-24 rounded-3xl bg-dc-green-bg flex items-center justify-center text-5xl shrink-0">🫙</div>
-            <div>
-              <h2 className="text-2xl font-extrabold text-dc-text">큰동치미</h2>
-              <p className="text-lg text-dc-text-secondary mt-1">스마트폰, 키오스크, AI 등<br />디지털 기초 교육</p>
-              <p className="text-base text-dc-green font-bold mt-2">양로원 · 복지관 · 시니어센터</p>
-            </div>
-          </div>
+          <DongchimiMood moodId="excited" size={120} className="mx-auto" />
+          <h2 className="text-3xl font-extrabold text-dc-text mt-4">큰동치미</h2>
+          <p className="text-xl font-bold text-dc-green mt-1">(시니어반)</p>
         </button>
 
+        {/* 작은동치미 */}
         <button
           onClick={() => navigate('/career')}
-          className="card hover:shadow-lg transition-shadow border-2 border-blue-200 text-left"
+          className="bg-blue-50 hover:bg-blue-100 rounded-3xl py-6 px-6 text-center transition-colors shadow-sm"
         >
-          <div className="flex items-center gap-5">
-            <div className="w-20 h-20 rounded-3xl bg-blue-50 flex items-center justify-center text-4xl shrink-0">🫙</div>
-            <div>
-              <h2 className="text-2xl font-extrabold text-dc-text">작은동치미</h2>
-              <p className="text-lg text-dc-text-secondary mt-1">이력서, 자기소개서 작성<br />취업 정보, AI 활용</p>
-              <p className="text-base text-blue-600 font-bold mt-2">재취업센터 · 평생학습원</p>
-            </div>
-          </div>
+          <DongchimiIcon size={70} className="mx-auto" />
+          <h2 className="text-3xl font-extrabold text-dc-text mt-3">작은동치미</h2>
+          <p className="text-xl font-bold text-blue-600 mt-1">(중장년반)</p>
         </button>
       </div>
     </div>
