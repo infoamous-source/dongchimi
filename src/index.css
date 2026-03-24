@@ -267,3 +267,53 @@ body {
 .has-bottom-nav {
   padding-bottom: 6rem;
 }
+
+/* ===== 모바일 반응형 (375px~) ===== */
+
+@media (max-width: 480px) {
+  html {
+    font-size: 17px;
+  }
+
+  .btn-primary, .btn-secondary {
+    min-height: 3.2rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.1rem;
+    border-radius: 1rem;
+  }
+
+  .input-field {
+    min-height: 3.2rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .card-highlight {
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .bottom-nav {
+    padding: 0.4rem 0.25rem;
+  }
+
+  .bottom-nav-item {
+    min-width: 3.5rem;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .bottom-nav-item svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .has-bottom-nav {
+    padding-bottom: 5rem;
+  }
+}

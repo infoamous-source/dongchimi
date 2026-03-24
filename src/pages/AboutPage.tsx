@@ -124,29 +124,6 @@ export default function AboutPage() {
         ))}
       </div>
 
-      {/* 이런 분들께 추천 */}
-      <div className="card mb-10 bg-dc-green-bg border-2 border-dc-green-pale">
-        <h2 className="text-2xl font-extrabold text-dc-green mb-4">
-          이런 분들께 추천해요
-        </h2>
-        <div className="flex flex-col gap-3">
-          {[
-            '스마트폰이 아직 어려운 분',
-            '키오스크, 무인기기가 겁나는 분',
-            '인터넷 쇼핑을 배워보고 싶은 분',
-            '보이스피싱이 걱정되는 분',
-            '다시 일자리를 구하고 싶은 분',
-            '자녀에게 묻기 미안한 분',
-            'AI가 뭔지 궁금한 분',
-          ].map((text, i) => (
-            <div key={i} className="flex items-center gap-3">
-              <span className="text-dc-green text-xl font-extrabold">✓</span>
-              <p className="text-xl text-dc-text font-medium">{text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* 프로그램 안내 */}
       <h2 className="text-2xl font-extrabold text-dc-text mb-5">
         지금 바로 시작해보세요
