@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { createOrganization, fetchOrganizations, deleteOrganization, fetchStudentCount } from '@/services/adminService'
 import { supabase } from '@/lib/supabase'
-import { Plus, Copy, Trash2, Check, Calendar } from 'lucide-react'
+import { Plus, Copy, Trash2, Check, Calendar, UserPlus, X } from 'lucide-react'
+import { createDemoAccounts, type DemoAccount } from '@/services/demoService'
 
 interface OrgWithCount {
   id: string
@@ -24,6 +25,9 @@ export default function OrgManagement() {
   const [newSubMonths, setNewSubMonths] = useState(3)
   const [loading, setLoading] = useState(false)
   const [copied, setCopied] = useState<string | null>(null)
+  const [demoLoading, setDemoLoading] = useState<string | null>(null)
+  const [demoResults, setDemoResults] = useState<DemoAccount[] | null>(null)
+  const [demoOrgName, setDemoOrgName] = useState('')
 
   const loadOrgs = useCallback(async () => {
     if (!user) return
@@ -70,6 +74,18 @@ export default function OrgManagement() {
     await navigator.clipboard.writeText(code)
     setCopied(code)
     setTimeout(() => setCopied(null), 2000)
+  }
+
+  const handleCreateDemo = async (orgCode: string, orgName: string) => {
+    setDemoLoading(orgCode)
+    try {
+      const accounts = await createDemoAccounts(orgCode)
+      setDemoResults(accounts)
+      setDemoOrgName(orgName)
+      await loadOrgs()
+    } finally {
+      setDemoLoading(null)
+    }
   }
 
   const getDaysLeft = (end: string | null) => {
@@ -197,9 +213,52 @@ export default function OrgManagement() {
                     )}
                   </div>
                 )}
+                {/* 데모 계정 생성 */}
+                <button
+                  onClick={() => handleCreateDemo(org.code, org.name)}
+                  disabled={demoLoading === org.code}
+                  className="btn-secondary w-full text-lg mt-3 flex items-center justify-center gap-2 py-3 disabled:opacity-50"
+                >
+                  <UserPlus size={20} />
+                  {demoLoading === org.code ? '생성 중...' : '데모 계정 생성'}
+                </button>
               </div>
             )
           })}
+        </div>
+      )}
+
+      {/* 데모 계정 결과 모달 */}
+      {demoResults && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl max-w-md w-full p-6 max-h-[80vh] overflow-y-auto">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-2xl font-extrabold text-dc-text">데모 계정 생성 완료</h3>
+              <button onClick={() => setDemoResults(null)} className="p-2 rounded-xl hover:bg-gray-100">
+                <X size={24} className="text-dc-text-muted" />
+              </button>
+            </div>
+            <p className="text-lg text-dc-text-secondary mb-4">{demoOrgName} - {demoResults.length}개 계정</p>
+            <div className="flex flex-col gap-3">
+              {demoResults.map((acc, i) => (
+                <div key={i} className="card bg-gray-50 border-2 border-gray-200">
+                  <p className="text-xl font-extrabold text-dc-text">{acc.name}</p>
+                  <p className="text-lg text-dc-text-secondary mt-1">이메일: {acc.email}</p>
+                  <p className="text-lg text-dc-green font-bold mt-1">비밀번호: {acc.password}</p>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={() => {
+                const text = demoResults.map(a => `${a.name}\n이메일: ${a.email}\n비밀번호: ${a.password}`).join('\n\n')
+                navigator.clipboard.writeText(text)
+              }}
+              className="btn-primary w-full text-xl mt-4 py-4 flex items-center justify-center gap-2"
+            >
+              <Copy size={22} />
+              전체 복사
+            </button>
+          </div>
         </div>
       )}
     </div>

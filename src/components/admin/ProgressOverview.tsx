@@ -2,7 +2,9 @@ import { useState, useEffect, useCallback } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { fetchStudentsByInstructor, fetchAllStudentProgress } from '@/services/adminService'
 import { courses } from '@/data/courses'
-import { Search, BarChart3 } from 'lucide-react'
+import { Search, BarChart3, Download } from 'lucide-react'
+import { exportStudentData, generateOrgReport, generateCertificate } from '@/services/exportService'
+import { FileText, Award } from 'lucide-react'
 
 interface StudentProgress {
   id: string
@@ -73,6 +75,52 @@ export default function ProgressOverview() {
           <p className="text-3xl font-extrabold text-dc-info">{avgPercent}%</p>
         </div>
       </div>
+
+      {/* 내보내기 버튼들 */}
+      {data.length > 0 && (
+        <div className="flex flex-col gap-3 mb-6">
+          <button
+            onClick={() => exportStudentData(data.map(s => ({
+              name: s.name,
+              email: s.email,
+              orgCode: '',
+              completedLessons: s.completedCount,
+              totalLessons: s.totalLessons,
+              loginDays: 0,
+              lastLogin: '',
+            })))}
+            className="btn-secondary w-full text-xl flex items-center justify-center gap-3 py-4"
+          >
+            <Download size={24} />
+            CSV 다운로드
+          </button>
+          <button
+            onClick={() => generateOrgReport('우리 기관', {
+              totalStudents: data.length,
+              avgProgress: avgPercent,
+              totalLessons,
+              period: new Date().toLocaleDateString('ko-KR'),
+              programType: 'senior',
+            })}
+            className="btn-secondary w-full text-xl flex items-center justify-center gap-3 py-4"
+          >
+            <FileText size={24} />
+            PDF 리포트
+          </button>
+          <button
+            onClick={() => {
+              const student = filtered[0]
+              if (student) {
+                generateCertificate(student.name, '동치미학교 교육과정', '우리 기관', new Date().toLocaleDateString('ko-KR'))
+              }
+            }}
+            className="btn-secondary w-full text-xl flex items-center justify-center gap-3 py-4"
+          >
+            <Award size={24} />
+            수료증 발급
+          </button>
+        </div>
+      )}
 
       {/* 검색 */}
       <div className="relative mb-6">

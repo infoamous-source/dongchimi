@@ -5,6 +5,7 @@ import { Send, Bot, User, Loader2, RotateCcw, ArrowLeft, Check, Key } from 'luci
 import { isGeminiEnabled, setStoredApiKey, clearStoredApiKey } from '@/services/gemini/geminiClient'
 import { useAuth } from '@/contexts/AuthContext'
 import { supabase } from '@/lib/supabase'
+import { logActivity } from '@/services/activityService'
 
 export default function CareerAiPage() {
   const { user } = useAuth()
@@ -44,6 +45,7 @@ export default function CareerAiPage() {
     try {
       const response = await askTutor(text.trim(), undefined, [...messages, userMsg], 'career')
       setMessages(prev => [...prev, { role: 'tutor', content: response, timestamp: Date.now() }])
+      if (user) logActivity(user.id, 'ai_question', { source: 'career', question: text.trim().slice(0, 100) })
     } catch {
       setMessages(prev => [...prev, { role: 'tutor', content: '잠시 문제가 생겼어요. 다시 물어봐 주세요!', timestamp: Date.now() }])
     } finally { setLoading(false); inputRef.current?.focus() }

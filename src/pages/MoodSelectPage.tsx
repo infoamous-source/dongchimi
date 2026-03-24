@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
 import { useMood } from '@/contexts/MoodContext'
 import { moods, type MoodId } from '@/data/moods'
+import { logActivity } from '@/services/activityService'
 import DongchimiMood from '@/components/brand/DongchimiVariants'
 
 export default function MoodSelectPage() {
@@ -19,6 +20,7 @@ export default function MoodSelectPage() {
   const handleConfirm = () => {
     if (!selected) return
     setMood(selected)
+    if (user) logActivity(user.id, 'mood_selected', { moodId: selected })
     navigate('/senior')
   }
 

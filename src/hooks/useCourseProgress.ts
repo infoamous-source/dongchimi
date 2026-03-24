@@ -5,6 +5,7 @@ import {
   markLessonComplete,
   upsertCourseProgress,
 } from '@/services/progressService'
+import { logActivity } from '@/services/activityService'
 
 export function useCourseProgress(courseId: string) {
   const { user } = useAuth()
@@ -28,6 +29,7 @@ export function useCourseProgress(courseId: string) {
     async (lessonId: string) => {
       if (!user) return
       await markLessonComplete(user.id, lessonId, courseId)
+      logActivity(user.id, 'lesson_complete', { lessonId, courseId })
       const updated = [...completedLessons, lessonId]
       setCompletedLessons(updated)
       await upsertCourseProgress(user.id, courseId, {

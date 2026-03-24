@@ -3,6 +3,7 @@ import { Suspense, lazy } from 'react'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { MoodProvider, useMood } from '@/contexts/MoodContext'
 import MainLayout from '@/components/common/MainLayout'
+import SubscriptionCheck from '@/components/common/SubscriptionCheck'
 import LoadingSkeleton from '@/components/common/LoadingSkeleton'
 
 // 프로그램 선택
@@ -44,7 +45,12 @@ const CeoDashboardPage = lazy(() => import('@/pages/CeoDashboardPage'))
 function SeniorHomeOrMood() {
   const { hasMoodToday } = useMood()
   if (!hasMoodToday) return <Navigate to="/senior/mood" replace />
-  return <HomePage />
+  return <SubscriptionCheck><HomePage /></SubscriptionCheck>
+}
+
+// 중장년층 구독 체크 래퍼
+function CareerWithSubscription() {
+  return <SubscriptionCheck><CareerProgramPage /></SubscriptionCheck>
 }
 
 function App() {
@@ -62,19 +68,19 @@ function App() {
 
               <Route element={<MainLayout />}>
                 <Route path="/senior" element={<SeniorHomeOrMood />} />
-                <Route path="/senior/about" element={<AboutPage />} />
-                <Route path="/senior/learn" element={<LearnHubPage />} />
-                <Route path="/senior/learn/practice" element={<PracticePage />} />
-                <Route path="/senior/learn/practice/:practiceId" element={<PracticeDetailPage />} />
-                <Route path="/senior/learn/kiosk" element={<KioskPracticePage />} />
-                <Route path="/senior/learn/:courseId" element={<CourseDetailPage />} />
-                <Route path="/senior/learn/:courseId/lessons/:lessonId" element={<LessonPage />} />
-                <Route path="/senior/work" element={<CareerHubPage />} />
-                <Route path="/senior/ai" element={<AiBiseoPage />} />
+                <Route path="/senior/about" element={<SubscriptionCheck><AboutPage /></SubscriptionCheck>} />
+                <Route path="/senior/learn" element={<SubscriptionCheck><LearnHubPage /></SubscriptionCheck>} />
+                <Route path="/senior/learn/practice" element={<SubscriptionCheck><PracticePage /></SubscriptionCheck>} />
+                <Route path="/senior/learn/practice/:practiceId" element={<SubscriptionCheck><PracticeDetailPage /></SubscriptionCheck>} />
+                <Route path="/senior/learn/kiosk" element={<SubscriptionCheck><KioskPracticePage /></SubscriptionCheck>} />
+                <Route path="/senior/learn/:courseId" element={<SubscriptionCheck><CourseDetailPage /></SubscriptionCheck>} />
+                <Route path="/senior/learn/:courseId/lessons/:lessonId" element={<SubscriptionCheck><LessonPage /></SubscriptionCheck>} />
+                <Route path="/senior/work" element={<SubscriptionCheck><CareerHubPage /></SubscriptionCheck>} />
+                <Route path="/senior/ai" element={<SubscriptionCheck><AiBiseoPage /></SubscriptionCheck>} />
                 <Route path="/senior/profile" element={<ProfilePage />} />
 
                 {/* ===== 2. 중장년층 프로그램 ===== */}
-                <Route path="/career" element={<CareerProgramPage />} />
+                <Route path="/career" element={<CareerWithSubscription />} />
                 <Route path="/career/digital" element={<CareerDigitalPage />} />
                 <Route path="/career/digital/kiosk" element={<KioskPracticePage />} />
                 <Route path="/career/work" element={<CareerWorkPage />} />

@@ -2,8 +2,11 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Sparkles, Copy, Check } from 'lucide-react'
 import { generateResume, type ResumeInput } from '@/services/gemini/careerService'
+import { useAuth } from '@/contexts/AuthContext'
+import { logActivity } from '@/services/activityService'
 
 export default function AiResumePage() {
+  const { user } = useAuth()
   const [form, setForm] = useState<ResumeInput>({
     name: '', birthYear: '', experience: '', skills: '', desiredJob: '',
   })
@@ -17,6 +20,7 @@ export default function AiResumePage() {
     try {
       const text = await generateResume(form)
       setResult(text)
+      if (user) logActivity(user.id, 'resume_generated', { desiredJob: form.desiredJob })
     } finally {
       setLoading(false)
     }

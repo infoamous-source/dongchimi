@@ -2,8 +2,11 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Sparkles, Copy, Check } from 'lucide-react'
 import { generateCoverLetter, type CoverLetterInput } from '@/services/gemini/careerService'
+import { useAuth } from '@/contexts/AuthContext'
+import { logActivity } from '@/services/activityService'
 
 export default function AiCoverLetterPage() {
+  const { user } = useAuth()
   const [form, setForm] = useState<CoverLetterInput>({
     name: '', experience: '', desiredJob: '', strengths: '', motivation: '',
   })
@@ -17,6 +20,7 @@ export default function AiCoverLetterPage() {
     try {
       const text = await generateCoverLetter(form)
       setResult(text)
+      if (user) logActivity(user.id, 'cover_letter_generated', { desiredJob: form.desiredJob })
     } finally {
       setLoading(false)
     }

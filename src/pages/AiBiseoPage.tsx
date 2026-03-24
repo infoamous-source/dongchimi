@@ -4,6 +4,7 @@ import { Send, Bot, User, Loader2, RotateCcw, Check, Key } from 'lucide-react'
 import { useMood } from '@/contexts/MoodContext'
 import { useAuth } from '@/contexts/AuthContext'
 import { isGeminiEnabled, setStoredApiKey, clearStoredApiKey } from '@/services/gemini/geminiClient'
+import { logActivity } from '@/services/activityService'
 import { supabase } from '@/lib/supabase'
 import DongchimiMood from '@/components/brand/DongchimiVariants'
 import DongchimiCharacter from '@/components/brand/DongchimiCharacter'
@@ -59,6 +60,7 @@ export default function AiBiseoPage() {
     try {
       const response = await askTutor(text.trim(), undefined, updated, 'senior')
       setMessages(prev => [...prev, { role: 'tutor', content: response, timestamp: Date.now() }])
+      if (user) logActivity(user.id, 'ai_question', {})
     } catch {
       setMessages(prev => [...prev, { role: 'tutor', content: '잠시 문제가 생겼어요. 다시 물어봐 주세요!', timestamp: Date.now() }])
     } finally {
