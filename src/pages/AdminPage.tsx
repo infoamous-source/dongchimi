@@ -88,7 +88,7 @@ export default function AdminPage() {
       {/* API 키 등록 팝업 (강사 첫 로그인 시) */}
       {showApiPopup && (
         <div className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full shadow-2xl">
             <Key size={40} className="text-dc-green mx-auto mb-4" />
             <h2 className="text-2xl font-extrabold text-dc-text text-center mb-2">AI API 키 등록</h2>
             <p className="text-lg text-dc-text-secondary text-center mb-6">학생 모드에서 AI비서를 사용하려면<br />API 키를 등록해주세요</p>

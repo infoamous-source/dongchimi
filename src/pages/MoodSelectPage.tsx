@@ -60,7 +60,7 @@ export default function MoodSelectPage() {
           동치미로 표현해보세요!
         </p>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
           {moods.map((mood) => (
             <button
               key={mood.id}
